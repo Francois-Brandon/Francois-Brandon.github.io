@@ -1,6 +1,6 @@
 function forLoop() {
-  var message = document.getElementById('formessage');
-  var num = Number(document.getElementById('loopnum'));
+  var message = document.getElementById('formessage').value;
+  var num = Number(document.getElementById('loopnum').value);
 
   console.log(message);
   console.log(num);
