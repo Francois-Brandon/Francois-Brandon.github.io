@@ -2,6 +2,9 @@ function forLoop() {
   var message = document.getElementsByName('formessage');
   var num = Number(document.getElementsByName('loopnum'));
 
+  console.log(message);
+  console.log(num);
+  
   for (var i = 0; i < num; i++) {
     message += message + "<br>";
     console.log(message);
