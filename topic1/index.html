@@ -7,33 +7,62 @@
 </head>
 <body>
 <h1>Brandon Francois - CIT 261</h1><hr>
+
+<div class="sidenav">
+  <button class="dropdown-btn">Topic
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">Topic 1</a>
+    <a href="../topic2/index.html">Topic 2</a>
+  </div>
+  <a href="#forloop">For Loop</a>
+  <a href="#forinloop">For/In Loop</a>
+  <a href="#whileloop">While Loop</a>
+  <a href="#dowhileloop">Do-While Loop</a>
+</div>
+
 <h2>Javascript - Loops, Conditional Statements, Functions, Arrays</h2>
-<h3>For Loop</h3>
-<p>There are 3 main components to a for loop.
-<ol>
-  <li>Loop Inititialization</li>
-  <li>Test Statement</li>
-  <li>Iteration Statement</li>
-</ol>
-<code>for (initialization; test condition; iteration statement){<br>
-   Code to be executed;<br>
-}</code><br><br>
-The <em>loop initialization</em> sets the starting value for counter.<br>
-The <em>test statement</em> defines the condition to either execute the code
-inside the loop or exit the loop.<br>
-The <em>iteration statement</em> increments or decrements the counter value.<br>
-</p>
-<h3>For/In Loop</h3>
-<p>The for...in loop is used to loop throught the properties of a
-  JavaScript Object.
-<br>
-<code>for (variable in object){<br>
-   code to be executed;<br>
-}</code><br><br>
-For each loop a property will be assigned to the variable. The code inside the
-  loop will be executed until it has gone through every property.
-</p>
-<p>While Loop</p>
-<p>Do/While Loop</p>
+
+<div id="forloop">
+  <h3>For Loop</h3>
+  <p>There are 3 main components to a for loop.
+    <ol>
+      <li>Loop Inititialization</li>
+      <li>Test Statement</li>
+      <li>Iteration Statement</li>
+    </ol>
+    Syntax:<br>
+    <code>for (initialization; test condition; iteration statement){<br>
+      Code to be executed;<br>
+    }</code><br><br>
+    The <em>loop initialization</em> sets the starting value for counter.<br>
+    The <em>test statement</em> defines the condition to either execute the code
+    inside the loop or exit the loop.<br>
+    The <em>iteration statement</em> increments or decrements the counter value.<br>
+  </p>
+</div>
+
+<div id="forinloop">
+  <h3>For/In Loop</h3>
+  <p>The for...in loop is used to loop throught the properties of a
+    JavaScript Object.<br><br>
+    Syntax:<br>
+    <code>for (variable in object){<br>
+      code to be executed;<br>
+    }</code><br><br>
+    For each loop a property will be assigned to the variable. The code inside the
+    loop will be executed until it has gone through every property.
+  </p>
+</div>
+
+<div id="whileloop">
+  <h3>While Loop</h3>
+</div>
+
+<div id="dowhileloop">
+  <h3>Do/While Loop</h3>
+</div>
+
 </body>
 </html>
