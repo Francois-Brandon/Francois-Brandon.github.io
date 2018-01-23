@@ -28,18 +28,19 @@
     The <em>iteration statement</em> increments or decrements the counter value.<br><br>
     Code Example:<br>
     Press the button to execute a counting for loop.<br>
+    The loops starts with the counter at 0 and will run as long as it is less than 5.<br>
   </p>
     <script type="text/javascript">
       function count() {
         var i;
         var text = "";
-        for (i = 0; i <=5; i++) {
+        for (i = 0; i < 5; i++) {
           text += "The number is " + i + "<br>";
         }
         document.getElementById('foroutput').innerHTML = text;
       }
     </script>
-    <button type="button" onclick="count()">Count</button>
+    <button type="button" onclick="count()">For Loop</button>
     <div id="foroutput"></div>
 
 </div>
@@ -53,16 +54,73 @@
       code to be executed;<br>
     }</code><br><br>
     For each loop a property will be assigned to the variable. The code inside the
-    loop will be executed until it has gone through every property.
+    loop will be executed until it has gone through every property.<br><br>
+      Code Example:<br>
+      Press the button to loop through all the properties for the player object.<br>
   </p>
+    <script type="text/javascript">
+        function properties() {
+            var player = {name:"Brandon", eyecolor:"Blue", haircolor:"Brown", age:30};
+            var output = "";
+            var p;
+            for (p in player) {
+                output += player[p] + " ";
+            }
+            document.getElementById('forinoutput').innerHTML = output;
+        }
+    </script>
+    <button type="button" onclick="properties()">For/In Loop</button>
+    <div id="forinoutput"></div>
 </div>
 
 <div id="whileloop">
   <h3>While Loop</h3>
+    <p>The while loop will execute the statements or code block as long as the expression           evaluates as true.<br><br>
+        Syntax:<br>
+        <code>while (expression){<br>
+        code to be executed;<br>
+        }</code><br><br>
+        Code Example:<br>
+        A variable i is set to 0. The while loop will run while i is less than 5. The variable i will be incremented each time the loop is run. Press the button to see the output.
+    </p>
+        <script type="text/javascript">
+        function whileloop() {
+            var text = "";
+            var i = 0;
+            while (i < 5) {
+                text += "The number is " + i + "<br>";
+                i++;
+            }
+            document.getElementById('whileoutput').innerHTML = text;
+        }
+    </script>
+    <button type="button" onclick="whileloop()">While Loop</button>
+    <div id="whileoutput"></div>
 </div>
 
 <div id="dowhileloop">
   <h3>Do/While Loop</h3>
+        <p>Like the while loop, the do/while loop will execute the statements or code block as long as the expression evaluates as true. The difference is that the expression is evaluated after the loop is run. This will guarantee that the code or statements in the loop will be executed at least once<br><br>
+        Syntax:<br>
+            <code>do{<br>
+            Statement(s) to be executed;<br>
+            } while (expression);</code><br><br>
+        Code Example:<br>
+        A variable i is set to 5. The do/while loop will run then evaluate if i is less than 5. Since this will evaluate to false the loop will be exited. Press the button to see the output.
+    </p>
+        <script type="text/javascript">
+        function dowhileloop() {
+            var text = "";
+            var i = 0;
+            do {
+                text += "The number is " + i + "<br>";
+                i++;
+            } while (i < 5)
+            document.getElementById('dowhileoutput').innerHTML = text;
+        }
+    </script>
+    <button type="button" onclick="dowhileloop()">Do/While Loop</button>
+    <div id="dowhileoutput"></div>
 </div>
 
 </body>
