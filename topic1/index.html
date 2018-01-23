@@ -8,20 +8,6 @@
 <body>
 <h1>Brandon Francois - CIT 261</h1><hr>
 
-<!-- <div class="sidenav">
-  <button class="dropdown-btn">Topic
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-container">
-    <a href="#">Topic 1</a>
-    <a href="../topic2/index.html">Topic 2</a>
-  </div>
-  <a href="#forloop">For Loop</a>
-  <a href="#forinloop">For/In Loop</a>
-  <a href="#whileloop">While Loop</a>
-  <a href="#dowhileloop">Do-While Loop</a>
-</div> -->
-
 <h2>Javascript - Loops, Conditional Statements, Functions, Arrays</h2>
 
 <div id="forloop">
@@ -39,8 +25,23 @@
     The <em>loop initialization</em> sets the starting value for counter.<br>
     The <em>test statement</em> defines the condition to either execute the code
     inside the loop or exit the loop.<br>
-    The <em>iteration statement</em> increments or decrements the counter value.<br>
+    The <em>iteration statement</em> increments or decrements the counter value.<br><br>
+    Code Example:<br>
+    Press the button to execute a counting for loop.<br>
   </p>
+    <script type="text/javascript">
+      function count() {
+        var i;
+        var text = "";
+        for (i = 0; i <=5; i++) {
+          text += "The number is " + i + "<br>";
+        }
+        document.getElementById('foroutput').innerHTML = text;
+      }
+    </script>
+    <button type="button" onclick="count()">Count</button>
+    <div id="foroutput"></div>
+
 </div>
 
 <div id="forinloop">
