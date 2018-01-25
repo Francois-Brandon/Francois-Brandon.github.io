@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="../mystyle.css">
+  <title>Brandon Francois - Topic 3</title>
+</head>
+<body>
+    <h1>Brandon Francois - CIT 261</h1>
+    <a href="../index.html">Back to Topics</a><hr>
+    <h2>JSON: Parse, Stringify</h2>
+    <div id="definition">
+    <h3>What is JSON?</h3>
+    <p>JSON stands for JavaScript Object Notation. It is a data-interchange format, meaning it is primarily used to transmit data in a consistent format. JSON is lngauge independent. The JSON format was developed to be easy for humans to read and write as well as to be easy for machines to parse and generate.<br><br>
+    There are two main structures to JSON:
+    <ul>
+        <li>A collection of name/value pairs, which can be interpreted as:</li>
+        <ul>
+            <li>Object</li>
+            <li>Record</li>
+            <li>Struct</li>
+            <li>Dictionary</li>
+            <li>Hashed Table</li>
+            <li>Keyed List</li>
+            <li>Associative Array</li>
+        </ul><br>
+        <li>Ordered list of values, which can be interpreted as:</li>
+        <ul>
+            <li>Array</li>
+            <li>Vector</li>
+            <li>List</li>
+            <li>Sequence</li>
+        </ul>
+    </ul>
+    Syntax:<br>
+    <ul>
+        <li>Object</li>
+        <ul>
+            <li>{ string:value, string:value, ... }</li>
+            <li>Pairs are comma separated</li>
+        </ul>
+        <li>Array</li>
+        <ul>
+            <li>[value, value, ...]</li>
+            <li>Values are comma separated</li>
+        </ul>
+        <li>Values formats:</li>
+        <ul>
+            <li>String</li>
+            <li>Number</li>
+            <li>Object</li>
+            <li>Array</li>
+            <li>True</li>
+            <li>False</li>
+            <li>null</li>
+        </ul>
+        <li>String formats:</li>
+        <ul>
+            <li>Any number of Unicode characters except " or \ or control character surrounded by double quotes</li>
+            <li>Supports backslash escapes. (i.e. \n,\t, etc.)</li>
+        </ul>
+        <li>Number formats:</li>
+        <ul>
+            <li>Digits (0-9)</li>
+            <li>Numbers with decimals (.123)</li>
+            <li>Exponents e (1e05)</li>
+        </ul>
+    </ul>
+    </p>
+    </div>
+    
+    <div id="parse">
+    <h3>JSON Parse</h3>
+        <p> JSON Parse is used to convert a string in a JSON format into a JavaScript object.  When using JSON.parse() on a JSON that derived from an array a JavaScript array will be returned instead. If the string is not in a JSON format then the parse will fail with a syntax error.<br><br>
+            Syntax:<br>
+            <code>JSON.parse(text[, reviver])</code><br><br>
+            Parameters:
+            <ul>
+                <li>Text: the string that will be parsed.</li>
+                <li>Reviver: (optional) When it is defined as a function it can be used to transform a parsed value before it is returned.</li>
+            </ul>
+        Code Examples:<br>
+        Create a string in a proper format:<br><br>
+        <code>var text = '{"name":"Brandon","health":20,"mana":30,"gold":50,"weapon":"staff"}';</code><br><br>
+        Now parse that string into a JavaScript object:<br><br>
+        <code>var obj = JSON.parse(text);</code><br><br>
+        We can now loop through all the properties in the object and display them:<br><br>
+        <code>var p;<br>
+            for (p in obj) {<br>
+            document.write(p + "&lt;br&gt;");<br>
+            }</code><br>
+        </p>
+    <script>
+        var text = '{"name":"Brandon","health":20,"mana":30,"gold":50,"weapon":"staff"}';
+        var obj = JSON.parse(text);
+        var p;
+        for (p in obj) {
+            document.write(p + "<br>");
+        }
+    </script>
+    </div>
+    
+    <div id="stringify">
+    <h3>JSON Stringify</h3>
+        <p> Stringify is a Javascript function used to convert a JavaScript object into a string. This is useful when sending data to a web server as the data needs to be a string.<br><br>
+        Syntax:<br>
+            <code>JSON.stringify(value[, replacer[, space]])</code><br><br>
+        Parameters:
+            <ul>
+                <li>Value: the value that is being converted to a string</li>
+                <li>Replacer:(optional) This can be a function that modifies the stringification process or an array of String or Number Objects. The latter would serve as a whitelist for filtering the properties of value as it is converted to a string. If no replacer is specified then all properties will be included.</li>
+                <li>Space: (optional) A string or number can be input here. If a number is provided this will specify the number of space characters to use as spaces. The number is capped at 10. Anything more than 10 will be capped at 10. If a string is provided that string will be used as white space. Again, it is capped at 10 characters. If more than 10 characters are provided only the first 10 will be used. If no space is specified then no white space woul be used.</li>
+            </ul>
+        String, Boolean, and Number objects are converted to their primitive values during stringification. When an object is being converted and <em>undefined</em>, a function, or a symbol are found these will be omitted. If those conditions are found when passing pure values they will be represented as <em>null</em>.<br><br>
+        Code Example:<br>
+        First, lets create an object.<br><br>
+        <code>var player = { name:"Brandon", health:20, mana:30, gold:50, weapon:"staff" };</code><br><br>
+        Now let's stringify the object.<br><br>
+        <code>var playerJson = JSON.stringify(player);</code><br><br>
+        Displaying the resulting string:<br><br>
+        <script>
+            var player = { name:"Brandon", health:20, mana:30, gold:50, weapon:"staff" };
+            document.write(JSON.stringify(player));
+        </script>
+        </p>
+    </div>
+    
+    
+</body>
+</html>
