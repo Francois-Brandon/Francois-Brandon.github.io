@@ -2,6 +2,8 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="../mystyle.css">
+    <script type="text/javascript" src="js-topic6.js"></script>
+    
   <title>Brandon Francois - Topic 6</title>
 </head>
 <body>
@@ -31,10 +33,11 @@
             &lt;h1>Learning DOM&lt;/h1><br>
             &lt;p>Manipulate everything.&lt;/p><br>
             &lt;/body><br>
-            &lt;/html></code><br><br>
+            &lt;/html></code><br>
         </p>
         <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile userAgent=\&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36\&quot; version=\&quot;8.0.2\&quot; editor=\&quot;www.draw.io\&quot; type=\&quot;device\&quot;&gt;&lt;diagram id=\&quot;240695c8-517b-38dd-73f3-b6647a639624\&quot; name=\&quot;Page-1\&quot;&gt;3ZnLcpswFIafpQu2GYQwtpf1pWln4mln3Jk2S8WcgFpAVBax3aevMBJXX9ImVRiyyKBfR7df35FsbOF5vL/lJA1XzIfIcmx/b+GF5ThTeyz/58KhENwxKoSAU7+QasKa/gYl2krNqA/bRqBgLBI0bYobliSwEQ2NcM52zbBHFjVHTUkAHWG9IVFX/UZ9ERbqZGRX+kegQahHRraqeSCbnwFnWaLGsxz8ePwrqmOi+1Lx25D4bFeT8NLCc86YKJ7i/Ryi3FptW9Huw5nact4cEvGsBqrFVhz02sGXVqgi4yJkAUtItKzU2XF9kPdgy1Io4kg+IvkIeyq+5/LNSJXuVc0PEOKg9plkgkmp6vuOsVT3kAh+qHWRF+/VQMVM8+mdXaxeDcv4RkU5Ch/CA1BRuDRa8gssBjmIDOEQEUGfmr0TRVJQxpVNvzAqx3VsBT2eqD1VzDuaFt1FMQXVqtqT95yTQy0szQO2fzGO29riVnzJ2ul4+VDMQJdqnlTSEZszCDlmELqExnPxejWE3BciVHP/orlq6CcSZaBPFI/Ecj2zSGjntBKIcom1zaiszh3YhVTAOiXHte3k4d20Xw0HXMD+skXdxWs+W7whT5V31UmKdExYO0U9++V+ITx0GHEXxpEhGPE1GIH4PYOxhE8ffkZhHPXrcv034NwucGNDwCFv6Nl8wtyJIXPdK9n8wOSn935ls9v+6GM0m92hwzjqwugZgnF0BUZBhfSzXzS27xZskkbvlGG/svx742z+6auscjyUx8tvEvYtByLeVQG9s841msjjoSfyuJvIU0OJPL6SyCHqWRbjt8xiNBk6ipMuisg+vSGvzuLkCotpz1D07DdEcXrhQrkDwhOaBLJ+8XnVo3uknbxm7xH7gmUrktA0k0BDnjRykQcRSgdvemReGzej5pUvwAd78qFp9+hzDJ18qJvNC7bJYlCvnvv0fvA/UieL1U8pxavt6ucqvPwD&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
-<script type="text/javascript" src="https://www.draw.io/js/viewer.min.js"></script><br>
+    <script type="text/javascript" src="https://www.draw.io/js/viewer.min.js"></script>
+<br>
     <p>The nodes in this tree have a hierarchical relationship. These relationships are described as parent, child, and sibling. In this tree &lt;html> is the root element and has no parent. The &lt;html> node has two children, &lt;head> and &lt;body>. Those two nodes are also siblings and are element nodes. The leaf nodes in this diagram are considered text nodes</p>
     
     </div>
@@ -44,7 +47,8 @@
         <p>The createElement() method is used to create a new element node For example, to create a new &lt;p> element:</p>
         <code>var paragraph = document.createElement("P");</code><br>
         <p>After a new element is created it can be inserted into the document using the appendChild() or insertBefore() methods. The insertBefore() method will insert a node as a child right before the specified node. The appendChild() method will insert a node as the last child of the specified node.</p>
-        <p>Code Examples:<br>
+        <div class="codeex">
+        <p><strong>Code Example:</strong><br>
             We have a list that contains a list of sports, and we want to add a new element to that list. <br><br>
             <code>&lt;ul id="list"><br>
                 &lt;li>Football&lt;/li><br>
@@ -59,6 +63,7 @@
             li.appendChild(text);</code><br><br>
             Now the &lt;li> node can be appended to the &lt;ul> node with the specified id.<br><br>
             <code>document.getElementById("list").appendChild(li);</code><br><br>
+            <button type="button" onclick="domAppend()">Append</button><br><br>
             The resulting list is below.
         </p>
         <ul id="list">
@@ -67,12 +72,7 @@
             <li>Basketball</li>
             <li>Soccer</li>
         </ul>
-        <script>
-            var li = document.createElement("LI");
-            var text = document.createTextNode("Baseball");
-            li.appendChild(text);
-            document.getElementById("list").appendChild(li);
-        </script>
+        </div>
     </div>
     
 </body>

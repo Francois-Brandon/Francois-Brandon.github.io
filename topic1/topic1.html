@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="../mystyle.css">
-  <title>Brandon Francois - Topic 1</title>
+    <link rel="stylesheet" type="text/css" href="../mystyle.css">
+    <script type="text/javascript" src="js-topic1.js"></script>
+    <title>Brandon Francois - Topic 1</title>
 </head>
 <body>
 <h1>Brandon Francois - CIT 261</h1>
@@ -26,24 +27,15 @@
     The <em>test statement</em> defines the condition to either execute the code
     inside the loop or exit the loop.<br>
     The <em>iteration statement</em> increments or decrements the counter value.<br><br>
-    Code Example:<br>
+    </p>
+    <div class="codeex">
+    <strong>Code Example:</strong><br>
     Press the button to execute a counting for loop.<br>
     The loops starts with the counter at 0 and will run as long as it is less than 5.<br>
-  </p>
-    
-    <script type="text/javascript">
-      function count() {
-        var i;
-        var text = "";
-        for (i = 0; i < 5; i++) {
-          text += "The number is " + i + "<br>";
-        }
-        document.getElementById('foroutput').innerHTML = text;
-      }
-    </script>
-    
+  
     <button type="button" onclick="count()">For Loop</button>
     <div id="foroutput"></div>
+    </div>
 
 </div>
 
@@ -57,24 +49,14 @@
     }</code><br><br>
     For each loop a property will be assigned to the variable. The code inside the
     loop will be executed until it has gone through every property.<br><br>
-      Code Example:<br>
+      <div class="codeex">
+      <strong>Code Example:</strong><br>
       Press the button to loop through all the properties for the player object.<br>
   </p>
     
-    <script type="text/javascript">
-        function properties() {
-            var player = {name:"Brandon", eyecolor:"Blue", haircolor:"Brown", age:30};
-            var output = "";
-            var p;
-            for (p in player) {
-                output += player[p] + " ";
-            }
-            document.getElementById('forinoutput').innerHTML = output;
-        }
-    </script>
-    
     <button type="button" onclick="properties()">For/In Loop</button>
     <div id="forinoutput"></div>
+    </div>
 </div>
 
 <div id="whileloop">
@@ -84,24 +66,14 @@
         <code>while (expression){<br>
         code to be executed;<br>
         }</code><br><br>
-        Code Example:<br>
+        <div class="codeex">
+        <strong>Code Example:</strong><br>
         A variable i is set to 0. The while loop will run while i is less than 5. The variable i will be incremented each time the loop is run. Press the button to see the output.
     </p>
     
-        <script type="text/javascript">
-        function whileloop() {
-            var text = "";
-            var i = 0;
-            while (i < 5) {
-                text += "The number is " + i + "<br>";
-                i++;
-            }
-            document.getElementById('whileoutput').innerHTML = text;
-        }
-    </script>
-    
     <button type="button" onclick="whileloop()">While Loop</button>
     <div id="whileoutput"></div>
+    </div>
 </div>
 
 <div id="dowhileloop">
@@ -111,42 +83,32 @@
             <code>do{<br>
             Statement(s) to be executed;<br>
             } while (expression);</code><br><br>
-        Code Example:<br>
+        <div class="codeex">
+        <strong>Code Example:</strong><br>
         A variable i is set to 5. The do/while loop will run then evaluate if i is less than 5. Since this will evaluate to false the loop will be exited. Press the button to see the output.
     </p>
     
-        <script type="text/javascript">
-        function dowhileloop() {
-            var text = "";
-            var i = 0;
-            do {
-                text += "The number is " + i + "<br>";
-                i++;
-            } while (i < 5)
-            document.getElementById('dowhileoutput').innerHTML = text;
-        }
-    </script>
-    
     <button type="button" onclick="dowhileloop()">Do/While Loop</button>
     <div id="dowhileoutput"></div>
+    </div>
 </div>
     
 <div id="conditionalifs">
     <h3>If, Else, Else If</h3>
     <p>The if statement is used to execute a block of code if a condition evaluates to true.<br><br>
-        Syntax:<br>
+        If Syntax:<br>
             <code>if (condition) {<br>
             block of code to be executed if the condition is true<br>
             }<br><br></code>
         The else statement is used in conjunction with the if statement. The else statement is placed after the if statement. The code in the else statement would be executed as an alternative to the code in the if statement, that is, if the condition evaluates to false<br><br>
-        Syntax:<br>
+        Else Syntax:<br>
             <code>if (condition) {<br>
             code to be executed if the condition is true<br>
             } else {<br>
             code to be executed if the condition is false<br>
             }<br><br></code>
         The else if statement is used to declare additional conditions after the first. If the first condition is false the next condition will be checked and so on until a true condition is found, else statement is reached, or all conditions are evaluated as false.<br><br>
-        Syntax:<br>
+        Else If Syntax:<br>
             <code>if (condition1) {
             block of code to be executed if condition1 is true
             } else if (condition2) {
@@ -155,30 +117,14 @@
             code to be executed if the condition1 is false and condition2 is false
             }
             </code><br><br>
-        Code Example:<br>
-        
-        <script type="text/javascript">
-        function ifelse() {
-            var input = document.getElementById("color").value;
-            var output = "";
-            if (input == "red") {
-                output = "This means Stop.";
-            }
-            else if (input == "green") {
-                output = "This means Go.";
-            }
-            else {
-                output = "I don't know what that means.";
-            }
-            document.getElementById('ifelseoutput').innerHTML = output;
-        }
-        </script>
-        
+        <div class="codeex">
+        <strong>Code Example:</strong><br> 
         Enter "red" or "green":<br>
         <input type="text" id="color"><br>
         <button onclick="ifelse()">If, Else, Else If</button>
     </p>
     <div id="ifelseoutput"></div>
+    </div>
     
 </div>
     
@@ -197,62 +143,14 @@
         break;<br><br>
         default: statement(s)<br>
         }<br><br></code>
-    Code Example:<br>
-
-        <script type="text/javascript">
-            function switchSelect() {
-                var input = document.getElementById("month").value;
-                var output = "";   
-                switch (input) {
-                    case '1':
-                        output = "You were born in January"
-                        break;
-                    case '2':
-                        output = "You were born in February"
-                        break;
-                    case '3':
-                        output = "You were born in March"
-                        break;
-                    case '4':
-                        output = "You were born in April"
-                        break;
-                    case '5':
-                        output = "You were born in May"
-                        break;
-                    case '6':
-                        output = "You were born in June"
-                        break;
-                    case '7':
-                        output = "You were born in July"
-                        break;
-                    case '8':
-                        output = "You were born in August"
-                        break;
-                    case '9':
-                        output = "You were born in September"
-                        break;
-                    case '10':
-                        output = "You were born in October"
-                        break;
-                    case '11':
-                        output = "You were born in November"
-                        break;
-                    case '12':
-                        output = "You were born in December"
-                        break;
-                    default:
-                        output = "I don't recognize that month"
-                        break;              
-                }
-                document.getElementById('switchoutput').innerHTML = output;
-            }
-        </script>
-        
+    <div class="codeex">
+    <strong>Code Example:</strong><br>        
         Enter the number of your birth month:<br>
         <input type="text" id="month"><br>
         <button onclick="switchSelect()">Switch</button>
     </p>
     <div id="switchoutput"></div>
+    </div>
 </div>
     
 <div id="functions">
@@ -264,23 +162,8 @@
             return something; //optional<br>
             }<br><br>
         </code>
-        Code Example:<br>
-        <script>
-            function calculate() {
-                var amount = parseFloat(document.getElementById("amount").value).toFixed(2);
-                var rate = parseFloat(document.getElementById("rate").value);
-                var calc = amount * (1 + (rate / 100));
-                var total = calc.toFixed(2);
-                                      
-                display(amount, rate, total)            
-            }
-            
-            function display(amount, rate, total) {
-                var output = "Amount: $" + amount + "<br>Tax: " + rate + "%<br> Total: $" + total + "<br>"
-                
-                document.getElementById('funcoutput').innerHTML = output;
-            }
-        </script>
+        <div class="codeex">
+        <strong>Code Example:</strong><br>
         Enter cost of item: 
         <input type="text" id="amount"><br>
         Enter tax rate (ex. 7): 
@@ -288,6 +171,7 @@
         <button onclick="calculate()">Get Total</button>
     </p>
     <div id="funcoutput"></div>
+    </div>
 </div>
     
 <div id="arays">
@@ -298,17 +182,19 @@
         <code>var array_name = [item1, item2, ...];</code><br><br>
         An array can also be created using the new keyword. If only a single number is used as a parameter then the array will be created with that length.<br>
         <code>var array_name = new Array(item1, item2, ...);</code><br><br>
-        When an array is created the values are stored sequentially with the first value occupying the position with index [0]. The various elements can be accessed by referring to the index number. This can be used to either get or set the specified element. To access the second element you would use:
+        When an array is created the values are stored sequentially with the first value occupying the position with index [0]. The various elements can be accessed by referring to the index number. This can be used to either get or set the specified element. To access the second element you would use:<br>
         <code>array_name[1];</code><br><br>
         There are many built in array properties and methods. For example, the length preperty will return the number of elements in the array.<br>
+        </p>
+        <div class="codeex">
+        <strong>Code Example:</strong><br>
         <code>var tools = ["hammer", "saw", "screwdriver", "wrench"];<br>
             var length = tools.length;<br>
-            document.write("The length is " + length);</code><br>
-        <script>
-            var tools = ["hammer", "saw", "screwdriver", "wrench"];
-            var length = tools.length;
-            document.write("The length is " + length);       
-        </script><br><br>
+        </code><br>
+        <button onclick="arrayLength()">Get Length</button>
+        <div id="arrayoutput"></div>
+        </div>
+    <p>
         A summary of some other available properties/methods:
         <ul>
             <li>forEach() - Loop over an Array</li>

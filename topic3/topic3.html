@@ -2,6 +2,8 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="../mystyle.css">
+    <script type="text/javascript" src="js-topic3.js"></script>
+    
   <title>Brandon Francois - Topic 3</title>
 </head>
 <body>
@@ -55,7 +57,7 @@
         </ul>
         <li>String formats:</li>
         <ul>
-            <li>Any number of Unicode characters except " or \ or control character surrounded by double quotes</li>
+            <li>Any number of Unicode characters except " or \ or control character, surrounded by double quotes</li>
             <li>Supports backslash escapes. (i.e. \n,\t, etc.)</li>
         </ul>
         <li>Number formats:</li>
@@ -78,7 +80,8 @@
                 <li>Text: the string that will be parsed.</li>
                 <li>Reviver: (optional) When it is defined as a function it can be used to transform a parsed value before it is returned.</li>
             </ul>
-        Code Examples:<br>
+        <div class="codeex">
+        <strong>Code Example:</strong><br>
         Create a string in a proper format:<br><br>
         <code>var text = '{"name":"Brandon","health":20,"mana":30,"gold":50,"weapon":"staff"}';</code><br><br>
         Now parse that string into a JavaScript object:<br><br>
@@ -89,14 +92,9 @@
             document.write(p + "&lt;br&gt;");<br>
             }</code><br>
         </p>
-    <script>
-        var text = '{"name":"Brandon","health":20,"mana":30,"gold":50,"weapon":"staff"}';
-        var obj = JSON.parse(text);
-        var p;
-        for (p in obj) {
-            document.write(p + "<br>");
-        }
-    </script>
+        <button type="button" onclick="objParse()">Parse</button><br>
+        <div id="parseoutput"></div>
+        </div>
     </div>
     
     <div id="stringify">
@@ -111,16 +109,16 @@
                 <li>Space: (optional) A string or number can be input here. If a number is provided this will specify the number of space characters to use as spaces. The number is capped at 10. Anything more than 10 will be capped at 10. If a string is provided that string will be used as white space. Again, it is capped at 10 characters. If more than 10 characters are provided only the first 10 will be used. If no space is specified then no white space woul be used.</li>
             </ul>
         String, Boolean, and Number objects are converted to their primitive values during stringification. When an object is being converted and <em>undefined</em>, a function, or a symbol are found these will be omitted. If those conditions are found when passing pure values they will be represented as <em>null</em>.<br><br>
-        Code Example:<br>
+        <div class="codeex">
+        <strong>Code Example:</strong><br>
         First, lets create an object.<br><br>
         <code>var player = { name:"Brandon", health:20, mana:30, gold:50, weapon:"staff" };</code><br><br>
         Now let's stringify the object.<br><br>
         <code>var playerJson = JSON.stringify(player);</code><br><br>
-        Displaying the resulting string:<br><br>
-        <script>
-            var player = { name:"Brandon", health:20, mana:30, gold:50, weapon:"staff" };
-            document.write(JSON.stringify(player));
-        </script>
+        <button type="button" onclick="objStringify()">Stringify</button><br><br>
+        Displaying the resulting string:<br><br>   
+        <div id="stringifyoutput"></div>
+            </div>
         </p>
     </div>
     
