@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../mystyle.css">
     <script type="text/javascript" src="js-topic1.js"></script>
     <title>Brandon Francois - Topic 1</title>
 </head>
 <body>
-<h1>Brandon Francois - CIT 261</h1>
-<a href="../index.html">Back to Topics</a><hr>
-
-<h2>Javascript - Loops, Conditional Statements, Functions, Arrays</h2>
+    <div class="navbar">
+        <a href="../index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Topics 
+            <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="../topic1/topic1.html">Loops/Conditionals</a>
+                <a href="../topic3/topic3.html">JSON Parse, Stringify</a>
+                <a href="../topic6/topic6.html">DOM Manipulation</a>
+                <a href="../topic2/topic2.html">Objects</a>
+            </div>
+        </div> 
+        <a href="../topic3/topic3.html">Next Topic</a>
+    </div>
+<h1>Javascript - Loops, Conditional Statements, Functions, Arrays</h1>
 
 <div id="forloop">
   <h3>For Loop</h3>
-  <p>There are 3 main components to a for loop.
+    <p>There are 3 main components to a for loop.</p>
     <ol>
       <li>Loop Inititialization</li>
       <li>Test Statement</li>
@@ -27,7 +40,7 @@
     The <em>test statement</em> defines the condition to either execute the code
     inside the loop or exit the loop.<br>
     The <em>iteration statement</em> increments or decrements the counter value.<br><br>
-    </p>
+    
     <div class="codeex">
     <strong>Code Example:</strong><br>
     Press the button to execute a counting for loop.<br>
@@ -48,11 +61,11 @@
       code to be executed;<br>
     }</code><br><br>
     For each loop a property will be assigned to the variable. The code inside the
-    loop will be executed until it has gone through every property.<br><br>
+    loop will be executed until it has gone through every property.</p><br><br>
       <div class="codeex">
       <strong>Code Example:</strong><br>
       Press the button to loop through all the properties for the player object.<br>
-  </p>
+  
     
     <button type="button" onclick="properties()">For/In Loop</button>
     <div id="forinoutput"></div>
@@ -61,7 +74,7 @@
 
 <div id="whileloop">
   <h3>While Loop</h3>
-    <p>The while loop will execute the statements or code block as long as the expression           evaluates as true.<br><br>
+    <p>The while loop will execute the statements or code block as long as the expression           evaluates as true.</p>
         Syntax:<br>
         <code>while (expression){<br>
         code to be executed;<br>
@@ -69,7 +82,7 @@
         <div class="codeex">
         <strong>Code Example:</strong><br>
         A variable i is set to 0. The while loop will run while i is less than 5. The variable i will be incremented each time the loop is run. Press the button to see the output.
-    </p>
+    
     
     <button type="button" onclick="whileloop()">While Loop</button>
     <div id="whileoutput"></div>
@@ -78,15 +91,15 @@
 
 <div id="dowhileloop">
   <h3>Do/While Loop</h3>
-        <p>Like the while loop, the do/while loop will execute the statements or code block as long as the expression evaluates as true. The difference is that the expression is evaluated after the loop is run. This will guarantee that the code or statements in the loop will be executed at least once<br><br>
+        <p>Like the while loop, the do/while loop will execute the statements or code block as long as the expression evaluates as true. The difference is that the expression is evaluated after the loop is run. This will guarantee that the code or statements in the loop will be executed at least once</p>
         Syntax:<br>
             <code>do{<br>
             Statement(s) to be executed;<br>
             } while (expression);</code><br><br>
-        <div class="codeex">
+    <div class="codeex">
         <strong>Code Example:</strong><br>
         A variable i is set to 5. The do/while loop will run then evaluate if i is less than 5. Since this will evaluate to false the loop will be exited. Press the button to see the output.
-    </p>
+    
     
     <button type="button" onclick="dowhileloop()">Do/While Loop</button>
     <div id="dowhileoutput"></div>
@@ -95,7 +108,7 @@
     
 <div id="conditionalifs">
     <h3>If, Else, Else If</h3>
-    <p>The if statement is used to execute a block of code if a condition evaluates to true.<br><br>
+    <p>The if statement is used to execute a block of code if a condition evaluates to true.</p>
         If Syntax:<br>
             <code>if (condition) {<br>
             block of code to be executed if the condition is true<br>
@@ -122,7 +135,7 @@
         Enter "red" or "green":<br>
         <input type="text" id="color"><br>
         <button onclick="ifelse()">If, Else, Else If</button>
-    </p>
+    
     <div id="ifelseoutput"></div>
     </div>
     
@@ -130,7 +143,7 @@
     
 <div id="conditionalswitch">
     <h3>Switch</h3>
-    <p>As an alternative to a series of if...else if statements a switch statement can be      used. As you can see in the syntax below, the switch statement will take the value of   the expression and match it with the cases. Each case will have a statement or code to execute if its condition is met. After each case statement the keyword break is used. This signifies the end of that particular case. Without the break statements each case following the true condition would be executed.<br><br>
+    <p>As an alternative to a series of if...else if statements a switch statement can be      used. As you can see in the syntax below, the switch statement will take the value of   the expression and match it with the cases. Each case will have a statement or code to execute if its condition is met. After each case statement the keyword break is used. This signifies the end of that particular case. Without the break statements each case following the true condition would be executed.</p><br>
     Syntax:<br>
         <code>switch (expression)<br>
         {<br>
@@ -148,14 +161,14 @@
         Enter the number of your birth month:<br>
         <input type="text" id="month"><br>
         <button onclick="switchSelect()">Switch</button>
-    </p>
+    
     <div id="switchoutput"></div>
     </div>
 </div>
     
 <div id="functions">
     <h3>Functions</h3>
-    <p>Functions can be used to group code into reusable blocks. A function is defined with the function keyword followed by the name of the function. Immediately following the function name are parenthesis where any parameters being sent to the function are defined. The body or code block of the function is surrounded by curly braces. There is also the optional keyword <em>return</em>. This would allow a value to be returned from the function. <br><br>
+    <p>Functions can be used to group code into reusable blocks. A function is defined with the function keyword followed by the name of the function. Immediately following the function name are parenthesis where any parameters being sent to the function are defined. The body or code block of the function is surrounded by curly braces. There is also the optional keyword <em>return</em>. This would allow a value to be returned from the function.</p>
     Syntax:<br>
         <code>function name(parameters, are, commaSeparated) {<br>
             statements;<br>
@@ -169,7 +182,7 @@
         Enter tax rate (ex. 7): 
         <input type="text" id="rate"><br>
         <button onclick="calculate()">Get Total</button>
-    </p>
+    
     <div id="funcoutput"></div>
     </div>
 </div>
@@ -194,8 +207,7 @@
         <button onclick="arrayLength()">Get Length</button>
         <div id="arrayoutput"></div>
         </div>
-    <p>
-        A summary of some other available properties/methods:
+    <p>A summary of some other available properties/methods:</p>
         <ul>
             <li>forEach() - Loop over an Array</li>
             <li>push() - Add to the end of an Array</li>
@@ -207,7 +219,7 @@
         </ul>
         There are many other methods that can be found <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">HERE</a>.
         
-    </p>
+    
 </div>
 
 </body>
