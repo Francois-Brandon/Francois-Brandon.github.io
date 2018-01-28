@@ -39,11 +39,6 @@ html, body {
     color: black;
 }
 
-.navbar a.active {
-    background-color: darkslategray;
-    color: white;
-}
-
 .dropdown {
     float: left;
     overflow: hidden;
