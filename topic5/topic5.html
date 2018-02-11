@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../mystyle.css">
+    <script type="text/javascript" src="js-topic5.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <title>Brandon Francois - Topic 5</title>
+</head>
+<body>
+   <div id="nav-placeholder">
+    </div>
+
+    <script>
+        $(function(){
+        $("#nav-placeholder").load("../nav.html");
+        });
+    </script>
+
+    <h1>Local Storage: Storing and Retrieving Arrays, Associative Arrays, and Objects</h1>
+    <h3>Example 1: Using the Web Storage API and JSON to Store and Retrieve Associative Array.</h3>
+    <p>The following example demonstrates storing and retreiving arrays using Local Storage. Under each picture there is a text box to enter a caption. After a caption is entered for each picture press the Save Captions button. The captions will not be serialized, stored in Local Storage, retrieved from storage, deserialized and displayed under the picture. To test that the captions were actually stored and retreived refresh the page and press the Display Saved Captions button.</p>
+    <div class="codeex">
+        <div id="buttonWrapper">
+            <button type="button" onclick="getCaptions()">Display Saved Captions</button>
+        </div>
+        <img src="https://archive.sltrib.com/images/2016/0911/utah_byu_side_091116~45.jpg" alt="BYU Taysom Hill" width="500" height="500">
+        <div class="displaycap" id="cap1"></div>
+        <div class="captioninput">
+            Enter Caption: <input type="text" id="caption1" size="50">
+        </div>
+        <img src="https://pbs.twimg.com/media/C-VR4qGVoAAe-KS.jpg" alt="Trump" width="500" height="500">
+        <div class="displaycap" id="cap2"></div>
+        <div class="captioninput">
+            Enter Caption: <input type="text" id="caption2" size="50">
+        </div>
+        <img src="http://www.zerognews.com/wp-content/uploads/2017/01/side3.jpg" alt="SpaceX Launch" width="500" height="500">
+        <div class="displaycap" id="cap3"></div>
+        <div class="captioninput">
+            Enter Caption: <input type="text" id="caption3" size="50">
+        </div>
+        <div id="buttonWrapper">
+            <button type="button" onclick="setCaptions()">Save Captions</button>
+        </div>
+    </div>
+    
+    <h3>Example 2: Remove Items and Clear Local Storage</h3>
+    <p>This example will exercise removeItem and clear methods. These allow you to remove specific items from Local Storage or to  empty the entire storage object for that domain</p>
+    
+    <div class="codeex">
+        <p>Create multiple items that we will store separately:</p>
+        First Name:<br><input type="text" id="fname"><br>
+        Last Name:<br><input type="text" id="lname"><br>
+        Age:<br><input type="text" id="age"><br>
+        <div id="buttonWrapper">
+            <button type="button" onclick="storeData()">Store/Display Data</button><br>
+        </div>
+        <div id="buttonWrapper">
+            <button type="button" onclick="ex2Display()">Retrieve Data</button>
+        </div>
+        <div id="example2">First Name: <br>Last Name: <br>Age: <br></div>
+        <div id="buttonWrapper">
+            <button type="button" onclick="remove('firstname')">Remove First Name</button>
+        </div>
+        <div id="buttonWrapper">
+            <button type="button" onclick="remove('lastname')">Remove Last Name</button>
+        </div>
+        <div id="buttonWrapper">
+            <button type="button" onclick="remove('age')">Remove Age</button>
+        </div>
+        <div id="buttonWrapper">
+            <button type="button" onclick="clearAll()">Clear Local Storage</button><br>
+        </div>
+    </div>
+        
+</body>
+</html>

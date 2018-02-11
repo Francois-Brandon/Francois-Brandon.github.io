@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../mystyle.css" id="default">
+    <link rel="stylesheet" type="text/css" href="dark.css" id="dark" disabled="true">
+    <link rel="stylesheet" type="text/css" href="pink.css" id="pink" disabled="true">
+    <script type="text/javascript" src="js-topic7.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <title>Brandon Francois - Topic 7</title>
+</head>
+<body>
+    <div id="nav-placeholder">
+    </div>
+
+    <script>
+        $(function(){
+        $("#nav-placeholder").load("../nav.html");
+        });
+    </script>
+    
+    <h1>Manipulating CSS Class Properties Using JavaScript</h1>
+    <div>
+        <button type="button" onclick="toggleDetails()">Toggle Details</button>
+        <button type="button" onclick="toggleExamples()">Toggle Examples</button>
+    </div>
+    <h3>Update/Add CSS Properties</h3>
+    
+    
+    <div class="details">
+        <p>Using HTML DOM you can select specific elements and update its style properties. In the following example the buttons can be used to update certain properties of the div they are located in. By clicking the Update Style button, a function will be called which will the width, border, and background of the div. Clicking on Revert Style will return those style properties to the initial values. Instead of updating the actual class that is associated with the div this will add the style attribut directly to the HTML element. This inline style will take priority over the class properties in the external style sheet. The revert is execute by removing the style attribute from the div element.</p>
+        <p>One thing to note is how some style properties are referenced using DOM. For example, when defining the background color in a class you do so using <code>background-color</code>. To reference that property we cannot use <code>element.style.background-color</code>. This will try to subtract <code>color</code> from <code>element.style.background</code>. Instead these properties should be written in CamelCase. The previous example would be written <code>element.style.backgroundColor</code></p>
+    </div>
+    
+    <div class="codeex" id="alpha">
+        <p>Click the buttons to update the style of this box. If you are unhappy with the results you may return to the original style.</p>
+        <div id="buttonWrapper">
+            <button type="button" onclick="updateDiv()">Update Style</button>
+        </div>
+        <div id="buttonWrapper">
+            <button type="button" onclick="revertDiv()">Revert Style</button>
+        </div>
+    </div>
+    
+    <h3>Update Class</h3>
+    
+    <div class="details">
+        <p>The following examples use getElementsByClassName() which returns a NodeList that is "live". This means that as an element is updated it may be removed from the NodeList. This can cause issues when tring to loop through the list. To account for the "live" nature of this NodeList you can loop backwards starting with the last index.</p>
+        <p>The Update Class button will retrieve a NodeList for all the elements that have the "codeex" class. It will then loop through and update the <code>className</code> propert with the "newcodeex" class. The Revert Class button will update the class for those elements back to "codeex"</p>
+        
+    </div>
+    
+    <div class="codeex" id="bravo">
+        <p>Add some more content here to change</p>
+        <div id="buttonWrapper">
+            <button type="button" onclick="updateAllClass()">Update Class</button>
+        </div>
+        <div id="buttonWrapper">
+            <button type="button" onclick="revertAllClass()">Revert Class</button>
+        </div>
+    </div>
+    
+    <div class="details">
+        <p>Another method to accomplish a similar task is querySelector() and querySelectorAll(). With these two methods you can return all or a single element in the document that matches a specified class. Where these methods differ from getElementsByClassName() is that you can specify any CSS selector or multiple selectors as a string. Multiple selectors are comma separated. When using the querySelectorAll() the matches are returned as a NodeList. Just as in the previous example, you can loop through the list and update all elements or a single element by specifiying the index.</p>
+    </div>
+    
+    <h3>Change Style Sheet</h3>
+    
+    <div class="details">
+        <p>Change style sheets with the click of a button</p>
+    </div>
+    
+        <div class="codeex" id="charlie">
+        <p>Pick a theme.</p>
+        <button type="button" onclick="changeTheme('default')">Default Theme</button>
+        <button type="button" onclick="changeTheme('dark')">Dark Theme</button>
+        <button type="button" onclick="changeTheme('pink')">Pretty Pink Theme</button>
+    </div>
+    
+
+    
+</body>
+</html>

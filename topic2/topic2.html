@@ -3,46 +3,94 @@
 <head>
   <link rel="stylesheet" type="text/css" href="../mystyle.css">
     <script type="text/javascript" src="js-topic2.js"></script>
-    
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <title>Brandon Francois - Topic 2</title>
 </head>
     <body>
-    <div class="navbar">
-        <a class="active" href="../index.html">Home</a>
-                <div class="dropdown">
-            <button class="dropbtn">Topics 
-            <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="../topic1/topic1.html">Loops/Conditionals</a>
-                <a href="../topic3/topic3.html">JSON Parse, Stringify</a>
-                <a href="../topic6/topic6.html">DOM Manipulation</a>
-                <a href="../topic2/topic2.html">Objects</a>
-            </div>
-        </div>
-        <a href="../topic6/topic6.html">Previous Topic</a>
-    </div>
-        <h1>Javascript - Object Creation, Functions, Properties, Methods, Instantiation</h1>
+   <div id="nav-placeholder"></div>
+
+    <script>
+        $(function(){
+        $("#nav-placeholder").load("../nav.html");
+        });
+    </script>
+        
+        <h1>Javascript - Object Creation Functions, Properties, Methods, Instantiation</h1>
         
         <div id="creation">
-            <h3>Creation</h3>
-            <p></p>
-        </div>
-        
-        <div id="functions">
-            <h3>Functions</h3>
+            <h3>Object Creation/Instantiation</h3>
+            <p>Along with the predefined objects available in Javascript you can create your own objects. Two ways to create an object are by using an object initializer or a constructor function. Using an object initializer is also known as creating an object with literal notation.</p>
+            <p>Object Initializer Syntax:</p>
+            <code>var object = {property1: value1, property2: value2, ...}</code>
+            <p>Each object initializer results in a new object being created. If the same object initializer is used it will still create a separate and distinct object. Comparing the two will result in a false equality. These objects are created as if <code>new Object()</code> were used.</p>
+            <p>To create an object using a constructor function you would first need to define the object by creating a constructor function. Next, you can create an instance of the object by using the <code>new</code> keyword.</p>
+            <p>Constructor Function Syntax:</p>
+            <code>function Player(name, health, mana, gold) {<br>
+                this.name = name;<br>
+                this.health = health;<br>
+                this.mana = mana;<br>
+                this.gold = gold;<br>
+                }<br><br>
+                var newPlayer = new Player('Brandon', 10, 20, 50)</code><br>
         </div>
         
         <div id="properties">
-            <h3>Properties</h3>
+            <h3>Object Properties</h3>
+            <p>In the examples above, not only are objects being created, but properties are being assigned to that object as well. A property can be described as a variable attached to the object. These properties define the object's characteristics. Two ways to access object properties are with the dot and bracket notations.</p>
+            <code>newPlayer.name //returns 'Brandon'<br>
+                newPlayer['health'] //returns 10</code>
+            <p></p>
         </div>
         
         <div id="methods">
-            <h3>Methods</h3>
+            <h3>Object Methods</h3>
+            <p>A method is a property of an object that is a function. They are defined the way as a normal function, but are assigned as an object property. Methods can be defined for an existing object or can be included in the object constructor function.</p>
+            <p>Existing Object Syntax:</p>
+            <code>objectName.method = function;</code>
+            <p>Literal Notation Syntax:</p>
+            <code>var object = { property: value, method(param) {<br>
+                    // function body }<br>
+                };<br></code>
+            <p>Object Constructor Syntax:</p>
+            <code>function Player(name, health, mana, gold) {<br>
+                this.name = name;<br>
+                this.health = health;<br>
+                this.mana = mana;<br>
+                this.gold = gold;<br>
+                this.sethealth = setHealth;<br>
+                }<br><br>
+                function setHealth(delta) {<br>
+                this.health += delta;<br>
+                if (this.health > 30) {<br>
+                this.health = 30;<br>
+                }<br>
+                else if (this.health &lt; 0) {<br>  
+                this.health = 0;<br>
+                }<br>
+                </code><br>
         </div>
         
-        <div id="instantiation">
-            <h3>Instantiation</h3>
+        <div id="examples">
+            <h3>Example</h3>
+            <p>To throw everything together we have the example below. In this example we have instantiated a new Player object with the property values defined above. These object properties can be displayed. There are also buttons to call the setHealth method and either increase or reduce the player's health.</p>
+            <div class="codeex">
+                Player Details:<br>
+                Name: <span id="nameDisp"></span><br>
+                Health: <span id="healthDisp"></span><br>
+                Mana: <span id="manaDisp"></span><br>
+                Gold: <span id="goldDisp"></span><br>
+                <div class="message" id="message"> </div>
+                <div id="buttonWrapper">
+                    <button type="button" onclick="displayPlayer()">Display Properties</button>
+                </div>
+                <div id="buttonWrapper">
+                    <button type="button" onclick="takeDamage()">Take Damage</button>
+                </div>
+                <div id="buttonWrapper">
+                    <button type="button" onclick="healthPot()">Health Potion</button>
+                </div>
+
+            </div>
         </div>
     
     </body>

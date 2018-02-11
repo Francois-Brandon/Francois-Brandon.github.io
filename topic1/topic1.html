@@ -4,24 +4,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../mystyle.css">
     <script type="text/javascript" src="js-topic1.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <title>Brandon Francois - Topic 1</title>
 </head>
 <body>
-    <div class="navbar">
-        <a href="../index.html">Home</a>
-        <div class="dropdown">
-            <button class="dropbtn">Topics 
-            <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="../topic1/topic1.html">Loops/Conditionals</a>
-                <a href="../topic3/topic3.html">JSON Parse, Stringify</a>
-                <a href="../topic6/topic6.html">DOM Manipulation</a>
-                <a href="../topic2/topic2.html">Objects</a>
-            </div>
-        </div> 
-        <a href="../topic3/topic3.html">Next Topic</a>
+   <div id="nav-placeholder">
     </div>
+
+    <script>
+        $(function(){
+        $("#nav-placeholder").load("../nav.html");
+        });
+    </script>
+    
 <h1>Javascript - Loops, Conditional Statements, Functions, Arrays</h1>
 
 <div id="forloop">
@@ -197,7 +192,7 @@
         <code>var array_name = new Array(item1, item2, ...);</code><br><br>
         When an array is created the values are stored sequentially with the first value occupying the position with index [0]. The various elements can be accessed by referring to the index number. This can be used to either get or set the specified element. To access the second element you would use:<br>
         <code>array_name[1];</code><br><br>
-        There are many built in array properties and methods. For example, the length preperty will return the number of elements in the array.<br>
+        There are many built in array properties and methods. For example, the length property will return the number of elements in the array.<br>
         </p>
         <div class="codeex">
         <strong>Code Example:</strong><br>

@@ -115,9 +115,10 @@ function display(amount, rate, total) {
     document.getElementById('funcoutput').innerHTML = output;
 }
 
-function arrayLength() {
-    var tools = ["hammer", "saw", "screwdriver", "wrench"];
+var tools = ["hammer", "saw", "screwdriver", "wrench"];
+
+function arrayLength() { 
     var length = tools.length;
-    var text = "The length is " + length;   
+    var text = "<br>The length is " + length;   
     document.getElementById('arrayoutput').innerHTML = text;
 }

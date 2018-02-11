@@ -27,7 +27,7 @@ h1 {
 
 html, body {
     overflow-x: hidden;
-    background-color: white;
+    background: linear-gradient(to bottom right, lightpink, deeppink);
 }
 
 img {

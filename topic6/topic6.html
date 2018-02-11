@@ -3,26 +3,19 @@
 <head>
   <link rel="stylesheet" type="text/css" href="../mystyle.css">
     <script type="text/javascript" src="js-topic6.js"></script>
-    
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <title>Brandon Francois - Topic 6</title>
 </head>
 <body>
-    <div class="navbar">
-        <a href="../index.html">Home</a>
-                <div class="dropdown">
-            <button class="dropbtn">Topics 
-            <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="../topic1/topic1.html">Loops/Conditionals</a>
-                <a href="../topic3/topic3.html">JSON Parse, Stringify</a>
-                <a href="../topic6/topic6.html">DOM Manipulation</a>
-                <a href="../topic2/topic2.html">Objects</a>
-            </div>
-        </div>
-        <a href="../topic3/topic3.html">Previous Topic</a>
-        <a href="../topic2/topic2.html">Next Topic</a>
+   <div id="nav-placeholder">
     </div>
+
+    <script>
+        $(function(){
+        $("#nav-placeholder").load("../nav.html");
+        });
+    </script>
+    
     <h1>DOM Manipulation Using createElement, appendChild, insertBefore etc.</h1>
     
     <div id="whatisdom">
