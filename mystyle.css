@@ -158,6 +158,19 @@ CSS3 Transitions/Animations Triggered by Javascript
 End for Topic 8
 ****************************************************/
 
+.touchbox {
+    background-color: rebeccapurple;
+    text-align: center;
+    -webkit-transition: background-color 3s;
+    -moz-transition: background-color 3s;
+    -o-transition: background-color 3s; 
+    transition: background-color 3s;
+}
+
+.touchbox.transition {
+    background-color: aquamarine;
+}
+
 .codeexsize {
     height: 400px;
 }

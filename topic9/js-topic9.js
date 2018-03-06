@@ -1,6 +1,6 @@
 window.onload = function() {
     document.getElementById("myButton").addEventListener("click", ouch);
-    document.getElementById("myButton").addEventListener("ontouchstart", transition)
+    document.getElementById("touchbox").addEventListener("ontouchstart", transition)
 }
 
 function ouch() {
@@ -8,9 +8,7 @@ function ouch() {
 }
 
 function transition() {
-    var boxOne = document.getElementsByClassName("box")[0];
-    var toggleText = document.getElementById('toggleButton');
-
+    var boxOne = document.getElementById("touchbox");
     boxOne.classList.add('transition');
 }
 
