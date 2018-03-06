@@ -40,11 +40,17 @@
         <button id="myButton">Don't Click Me</button>
     </div>
     
-    <p>onTouchStart</p>
-    <div class="codeex touchbox" id="box">
+    <h3>Animation and Transition Events with ontouchstart</h3>
+    <p>On mobile devices, events can be triggered by a touch on the screen. Using the ontouchstart and ontouchend events we can trigger transitions and animations. The examples below can be triggered on a mobile device or a simulated mobile device.</p>
+    <div class="codeex touchbox" id="touchbox" ontouchstart="transition()" ontouchend="transitionback()">
+        <p>Press in this box to transition the color and size</p>
         <p>Placeholder text</p>
-        <p>Placeholder text</p>
-    </div>
+    </div><br>
+    
+    <div class="codeex codeexsize" ontouchstart="animateBox()" ontouchend="animateBoxStop()">
+        <p>Press within this outline to animate the box.</p>
+        <div id='box3'></div>    
+    </div><br>
     
     
 </body>
