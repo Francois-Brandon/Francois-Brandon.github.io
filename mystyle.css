@@ -21,7 +21,7 @@ code {
     
 }
 
-h1 {
+h1, h4 {
     text-align: center;
 }
 
@@ -55,6 +55,132 @@ button {
 button:hover {
     background-color: lightgray;
     color: slategray;
+}
+
+/****************************************************
+For topic 8
+CSS3 Transitions/Animations Triggered by Javascript
+****************************************************/
+.box {
+    margin: 30px;
+    height: 50px;
+    width: 100px;
+    color: white;
+    background-color: rebeccapurple;
+    text-align: center;
+    -webkit-transition: background-color 3s, margin 3s, color 3s;
+    -moz-transition: background-color 3s, margin 3s, color 3s;
+    -o-transition: background-color 3s, margin 3s, color 3s; 
+    transition: background-color 3s, margin 3s, color 3s;
+}
+
+.box.transition {
+
+    background-color: aquamarine;
+    margin-left: 80%;
+    color: black;
+    text-align: center;
+}
+
+.box2 {
+    margin: 30px;
+    height: 25px;
+    width: 50px;
+    background-color: darkred;
+    transition: width 3s linear 1s, margin 4s ease-in, height 2s ease-out 3s, background 5s;   
+}
+
+.box2.transition {
+    width: 200px;
+    margin-left: 60%;
+    height: 50px;
+    background-color: green;
+}
+
+#box3 {
+    margin: 30px;
+    height: 50px;
+    width: 100px;
+    position: relative;
+    background-color: rebeccapurple;
+}
+
+@keyframes animation1 {
+    0%   {background-color:rebeccapurple; left:0px; top:0px;}
+    25%  {background-color:yellow; left:450px; top:0px;}
+    50%  {background-color:blue; left:450px; top:200px; -webkit-transform: rotate(360deg);}
+    75%  {background-color:green; left:0px; top:200px;}
+    100% {background-color:red; left:0px; top:0px;}
+}
+
+#cupgame {
+    margin: 0 auto;
+    width 80%;
+}
+
+.cup {
+    position: relative;
+    display: inline-block;
+    left: 0;
+    right: 0;
+    margin-right: 50px;
+}
+
+@keyframes cup1 {
+    0%   {-webkit-transform: translate(48px, 48px) rotate(0deg) translate(-48px, -48px) rotate(0deg);}
+    25%  {-webkit-transform:translate(48px, 48px) rotate(45deg) translate(-48px, -48px) rotate(-45deg);}
+    50%  {-webkit-transform:translate(48px, 48px) rotate(90deg) translate(-48px, -48px) rotate(-90deg);}
+    75%  {-webkit-transform:translate(48px, 48px) rotate(45deg) translate(-48px, -48px) rotate(-45deg);}
+    100%  {-webkit-transform:translate(48px, 48px) rotate(0deg) translate(-48px, -48px) rotate(0deg);}
+}
+
+@keyframes cup2 {
+    0%   {-webkit-transform: translate(-48px, -48px) rotate(0deg) translate(48px, 48px) rotate(0deg);}
+    13%  {-webkit-transform:translate(-48px, -48px) rotate(45deg) translate(48px, 48px) rotate(-45deg);}
+    25%  {-webkit-transform:translate(-48px, -48px) rotate(90deg) translate(48px, 48px) rotate(-90deg);}
+    38%  {-webkit-transform:translate(-48px, -48px) rotate(45deg) translate(48px, 48px) rotate(-45deg);}
+    50%  {-webkit-transform:translate(-48px, -48px) rotate(0deg) translate(48px, 48px) rotate(0deg);}
+    63%  {-webkit-transform:translate(48px, 48px) rotate(45deg) translate(-48px, -48px) rotate(-45deg);}
+    75%  {-webkit-transform:translate(48px, 48px) rotate(90deg) translate(-48px, -48px) rotate(-90deg);}
+    88%  {-webkit-transform:translate(48px, 48px) rotate(45deg) translate(-48px, -48px) rotate(-45deg);}
+    100%  {-webkit-transform:translate(48px, 48px) rotate(0deg) translate(-48px, -48px) rotate(0deg);}
+}
+
+@keyframes cup3 {
+    0%   {-webkit-transform: translate(-48px, -48px) rotate(0deg) translate(48px, 48px) rotate(0deg);}
+    25%  {-webkit-transform:translate(-48px, -48px) rotate(45deg) translate(48px, 48px) rotate(-45deg);}
+    50%  {-webkit-transform:translate(-48px, -48px) rotate(90deg) translate(48px, 48px) rotate(-90deg);}
+    75%  {-webkit-transform:translate(-48px, -48px) rotate(45deg) translate(48px, 48px) rotate(-45deg);}
+    100%  {-webkit-transform:translate(-48px, -48px) rotate(0deg) translate(48px, 48px) rotate(0deg);}
+}
+
+/****************************************************
+End for Topic 8
+****************************************************/
+
+.codeexsize {
+    height: 400px;
+}
+
+.mytable {
+    border-collapse: collapse;
+    width: 90%;
+    margin: auto;
+}
+
+.mytable td, .mytable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.mytable tr:nth-child(even){background-color: #f2f2f2;}
+
+.mytable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: slategray;
+    color: white;
 }
 
 .captioninput {

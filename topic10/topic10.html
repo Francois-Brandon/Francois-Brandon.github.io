@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="../mystyle.css">
+    <script type="text/javascript" src="js-topic10.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <title>Brandon Francois - Topic 10</title>
+</head>
+<body>
+    <div id="nav-placeholder">
+    </div>
+
+    <script>
+        $(function(){
+        $("#nav-placeholder").load("../nav.html");
+         });
+    </script>
+    
+    <h1>HTML5 Tags - Video, Audio, Canvas</h1>
+    
+    <h3>Video Tag</h3>
+    <p>
+        The <code>&lt;video></code> tag is used to specify a video, movie clip, or other video stream. There are currently 3 supported MIME types for video formats. Support differs between browsers.
+    </p>
+    <table class="mytable">
+        <tr>
+            <th>Format</th>
+            <th>MIME-type</th>
+            <th>Specs</th>
+        </tr>
+        <tr>
+            <td>MP4</td>
+            <td>video/mp4</td>
+            <td>MPEG 4 files with H264 video codec and AAC audio codec</td>
+        </tr>
+        <tr>
+            <td>WebM</td>
+            <td>video/webm</td>
+            <td>WebM files with VP8 video codec and Vorbis audio codec</td>
+        </tr>
+        <tr>
+            <td>Ogg</td>
+            <td>video/ogg</td>
+            <td>Ogg files with Theora video codec and Vorbis audio codec</td>
+        </tr>
+    </table><br>
+    <p>The following table contains the various optional attributes available to the <code>&lt;video></code> tag.</p>
+    
+    <table class="mytable">
+        <tr>
+            <th>Attribute</th>
+            <th>Value</th>
+            <th>Information</th>
+        </tr>
+        <tr>
+            <td>autoplay</td>
+            <td>autoplay</td>
+            <td>When this attribute is present, the video will automatically start playing as soon as it can.</td>
+        </tr>
+        <tr>
+            <td>controls</td>
+            <td>controls</td>
+            <td>When this attribute is present, video controls will be displayed. These video controls are:
+                <ul>
+                    <li>Play</li>
+                    <li>Pause</li>
+                    <li>Seeking</li>
+                    <li>Volume</li>
+                    <li>Fullscreen Toggle</li>
+                    <li>Captions/Subtitles (when available)</li>
+                    <li>Track (when available)</li>
+                </ul>    
+            </td>
+        </tr>
+        <tr>
+            <td>height</td>
+            <td>pixels</td>
+            <td>Defines, in pixels, the height of the video player.</td>
+        </tr>
+        <tr>
+            <td>loop</td>
+            <td>loop</td>
+            <td>When this attribute is present the video will replay each time it finishes playing.</td>
+        </tr>
+        <tr>
+            <td>muted</td>
+            <td>muted</td>
+            <td>The audio will be muted when the video is played.</td>
+        </tr>
+        <tr>
+            <td>poster</td>
+            <td>URL</td>
+            <td>Th image specified here will be shown while the video is loading and until the play button is pressed.</td>
+        </tr>
+        <tr>
+            <td>preload</td>
+            <td>auto<br>
+            metadata<br>
+            none</td>
+            <td>Used to specify how the video should be loaded when the page loads. This attribute is ignored if autoplay is present.
+                <ul>
+                    <li>auto: The browser should load the entire video when the page loads</li>
+                    <li>metadata: Only the metadata should be load when the page loads</li>
+                    <li>none: The browser should not load the video when the page loads</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>src</td>
+            <td>URL</td>
+            <td>Specifies the source URL of the video file.</td>
+        </tr>
+        <tr>
+            <td>width</td>
+            <td>pixels</td>
+            <td>Defines, in pixels, the width of the video player.</td>
+        </tr>
+    </table>
+    
+    <h3>Video Examples</h3>
+    <p>To specify a video source you can use either the <code>src</code> attribute or the <code>source</code> element. The following example uses multiple <code>source</code> elements to specify multiple formats. This will allow for greater compatibility across browsers.</p>
+    
+    <div class="codeex">
+        <h4>Autoplay with Loop</h4>
+        <p><code>&lt;video muted autoplay loop width="600" poster="Ski-Day.jpg"><br>
+            &lt;source src="Ski-Day.webm" type="video/webm"/><br>
+            &lt;source src="Ski-Day.mp4" type="video/mp4"/><br>
+            &lt;/video><br>
+            </code></p>
+        <video muted autoplay loop width="600" poster="Ski-Day.jpg">
+            <source src="Ski-Day.webm" type="video/webm"/>
+            <source src="Ski-Day.mp4" type="video/mp4"/>
+        </video>
+        <h4>No Preload with Controls</h4>
+        <p><code>&lt;video muted controls preload="none" width="600" poster="Ski-Day.jpg"><br>
+            &lt;source src="Ski-Day.webm" type="video/webm"/><br>
+            &lt;source src="Ski-Day.mp4" type="video/mp4"/><br>
+            &lt;/video><br>
+            </code></p>
+        <video muted controls preload="none" width="600" poster="Ski-Day.jpg">
+            <source src="Ski-Day.webm" type="video/webm"/>
+            <source src="Ski-Day.mp4" type="video/mp4"/>
+        </video>
+    </div>
+    
+    <h3>Audio Tag</h3>
+     <p>
+        The <code>&lt;audio></code> tag is used to define sound. This can be music or other audio streams. There are currently 3 supported MIME types for audio formats. Support differs between browsers.
+    </p>
+    <table class="mytable">
+        <tr>
+            <th>Format</th>
+            <th>MIME-type</th>
+        </tr>
+        <tr>
+            <td>MP3</td>
+            <td>audio/mp3</td>
+        </tr>
+        <tr>
+            <td>Wav</td>
+            <td>audio/wav</td>
+        </tr>
+        <tr>
+            <td>Ogg</td>
+            <td>audio/ogg</td>
+        </tr>
+    </table><br>
+    
+    <p>There are similar attributes available to the <code>&lt;audio></code> tag. The table below explains the optional attributes.</p>
+    
+        <table class="mytable">
+        <tr>
+            <th>Attribute</th>
+            <th>Value</th>
+            <th>Information</th>
+        </tr>
+        <tr>
+            <td>autoplay</td>
+            <td>autoplay</td>
+            <td>When this attribute is present, the audio will automatically start playing as soon as it can.</td>
+        </tr>
+        <tr>
+            <td>controls</td>
+            <td>controls</td>
+            <td>When this attribute is present, audio controls will be displayed. These audio controls are:
+                <ul>
+                    <li>Play</li>
+                    <li>Pause</li>
+                    <li>Seeking</li>
+                    <li>Volume</li>
+                </ul>    
+            </td>
+        </tr>
+        <tr>
+            <td>loop</td>
+            <td>loop</td>
+            <td>When this attribute is present the audio will replay each time it finishes playing.</td>
+        </tr>
+        <tr>
+            <td>muted</td>
+            <td>muted</td>
+            <td>The sound will be muted when the audio is played.</td>
+        </tr>
+        <tr>
+            <td>preload</td>
+            <td>auto<br>
+            metadata<br>
+            none</td>
+            <td>Used to specify how the audio should be loaded when the page loads. This attribute is ignored if autoplay is present.
+                <ul>
+                    <li>auto: The browser should load the entire aduio file when the page loads</li>
+                    <li>metadata: Only the metadata should be load when the page loads</li>
+                    <li>none: The browser should not load the audio when the page loads</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>src</td>
+            <td>URL</td>
+            <td>Specifies the source URL of the video file.</td>
+        </tr>
+    </table><br>
+    
+    <h3>Audio Examples</h3>
+    <p>For the sake of everyone's sanity, these audio files will not autoplay. The following example is an audio file using the Ogg format with controls available to play at your discretion. The source for the audio is defined using the <code>src</code> attribute in the <code>&lt;audio></code> element.</p>
+    <div class="codeex">
+        <p><code>&lt;audio controls src="audio_demo.ogg">&lt;/audio></code></p>
+        <audio controls src="audio_demo.ogg"></audio>
+    </div>
+    
+    <h3>Canvas Tag</h3>
+    <p>The <code>&lt;canvas></code> element is used to draw graphics on a webpage. These graphics can be drawn on the fly using JavaScript. There are several built-in methods that allow for drawing paths, text, and shapes like circles and rectangles. These graphics can even be animated.  The canvas element only has two attributes, height and width. The default size is 300 pixels wide and 150 pixels high, but these dimensions can be specified using the attributes. The canvas element can be styled like an image by defining margin, border, background. If no style is defined the canvas element will be transparent. The canvas is a two dimensional grid that uses a coordinate system. The origin (0,0) is located in the top left corner. These coordinates are used to do the actual drawing as will be seen in the examples. To start using a canvas element you must first create one.</p>
+    
+    <p><code>&lt;canvas id="mycanvas" height="300" width="500">&lt;/canvas></code></p>
+    
+    <p>To draw on this blank canvas a script must be used. The script first needs to access the rendering context. This is done by calling the method <code>getContext()</code>. This method takes one parameter, the context. For 2-dimensional graphics, that would simply be "2d". The <code>getContext()</code> returns an object that has many properties and methods available to draw on the canvas. Our script would start like this</p>
+    
+    <p><code>var canvas = document.getElementById('mycanvas');<br>
+            var ctx = canvas.getContext('2d');</code></p>
+    
+    <p>The following table describes some of the available methods and properties available to the <code>getContext("2d")</code> object.</p>
+    
+    <table class="mytable">  
+        <h4>Color, Style, Shadow</h4>
+        <tr>
+            <th>Property</th>
+            <th>Value</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>fillStyle</td>
+            <td>CSS Color Value<br>
+            Gradient object<br>
+            Pattern object</td>
+            <td>Sets or returns the color, gradient, or pattern used to fill the drawing<br>
+            Default value: #000000</td>
+        </tr>
+        <tr>
+            <td>strokeStyle</td>
+            <td>CSS Color Value<br>
+            Gradient object<br>
+            Pattern object</td>
+            <td>Sets or returns the color, gradient, or pattern used for strokes.<br>
+            Default value: #000000</td>
+        </tr>
+        <tr>
+            <td>shadowColor</td>
+            <td>CSS Color Value</td>
+            <td>Sets or returns the color to use for shadows.<br>
+            Default value: #000000</td>
+        </tr>
+        <tr>
+            <td>shadowBlur</td>
+            <td>Number</td>
+            <td>Sets or returns the blur level for shadows.<br>
+            Default value: 0</td>
+        </tr>
+        <tr>
+            <td>shadowOffsetX</td>
+            <td>Number</td>
+            <td>Sets or returns the horizontal distance of the shadow from the shape<br>
+            Default value: 0</td>
+        </tr>
+        <tr>
+            <td>shadowOffsetY</td>
+            <td>Number</td>
+            <td>Sets or returns the vertical distance of the shadow from the shape<br>
+            Default value: 0</td>
+        </tr>
+        <tr>
+            <th>Method</th>
+            <th>Syntax</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>createLinearGradient()</td>
+            <td><code>context.createLinearGradient(x0,y0,x1,y1);</code></td>
+            <td>Creates a linear gradient object. This can be used to fill rectangles, circles, lines, text, etc.
+                <ul>
+                    <li>x0: The x-coordinate of the start point of the gradient</li>
+                    <li>y0: The y-coordinate of the start point of the gradient</li>
+                    <li>x1: The x-coordinate of the end point of the gradient</li>
+                    <li>y1: The y-coordinate of the end point of the gradient</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>createPattern()</td>
+            <td><code>context.createPattern(image,"repeat|repeat-x|repeat-y|no-repeat");</code></td>
+            <td>Repeats the specified element in the specified direction. The element can be an image, video, or another <code>&lt;canvas></code> element.
+                <ul>
+                    <li>image: Specifies the image, canvas, or video element of the pattern to use</li>
+                    <li>repeat: Default. The pattern repeats both horizontally and vertically</li>
+                    <li>repeat-x: The pattern repeats only horizontally</li>
+                    <li>repeat-y: The pattern repeats only vertically</li>
+                    <li>no-repeat: The pattern will be displayed only once (no repeat)</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>createRadialGradient()</td>
+            <td><code>context.createRadialGradient(x0,y0,r0,x1,y1,r1);</code></td>
+            <td>Creates a radial/circular gradient object. The gradient can be used to fill rectangles, circles, lines, text, etc.
+                <ul>
+                    <li>x0: The x-coordinate of the starting circle of the gradient</li>
+                    <li>y0: The y-coordinate of the starting circle of the gradient</li>
+                    <li>r0: The radius of the starting circle</li>
+                    <li>x1: The x-coordinate of the ending circle of the gradient</li>
+                    <li>y1: The y-coordinate of the ending cirlce of the gradient</li>
+                    <li>r0: The radius of the ending circle</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>addColorStop()</td>
+            <td>gradient.addColorStop(stop,color);</td>
+            <td>Specifies the colors and position in a gradient object, and is used together with <code>createLinearGradient()</code> or <code>createRadialGradient()</code>.
+                <ul>
+                    <li>stop: A value between 0.0 and 1.0 that represents the position between start and end in a gradient</li>
+                    <li>A CSS color value to display at the stop position</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <h4>Line Styles</h4>
+    <table class="mytable">
+        <tr>
+            <th>Property</th>
+            <th>Value</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>lineCap</td>
+            <td>
+                butt: Default. A flat edge is added to each end of the line<br>
+                round: A rounded end cap is added to each end of the line<br>
+                square: A square end cap is added to each end of the line<br>
+            </td>
+            <td>Sets or returns the style of the end caps for a line</td>
+        </tr>
+        <tr>
+            <td>lineJoin</td>
+            <td>
+                bevel: Creates a beveled corner<br>
+                round: Creates a rounded corner<br>
+                miter: Default. Creates a sharp corner<br>
+            </td>
+            <td>Sets or returns the type of corner created, when two lines meet</td>
+        </tr>
+        <tr>
+            <td>lineWidth</td>
+            <td>Number (pixels)</td>
+            <td>Sets or returns the current line width</td>
+        </tr>
+        <tr>
+            <td>miterLimit</td>
+            <td>A positive number that specifies the maximum miter length. If the current miter length exceeds the miterLimit, the corner will display as lineJoin "bevel".<br>
+            Default value: 10</td>
+            <td>Sets or returns the maximum miter length.</td>
+        </tr>
+    </table>
+    
+    <h4>Rectangles</h4>
+    <table class="mytable">
+        <tr>
+            <th>Method</th>
+            <th>Syntax</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>rect()</td>
+            <td><code>context.rect(x,y,width,height);</code></td>
+            <td>Creates a rectangle.
+                <ul>
+                    <li>x: The x-coordinate of the upper-left corner of the rectangle</li>
+                    <li>y: The y-coordinate of the upper-left corner of the rectangle</li>
+                    <li>width: The width of the rectangle, in pixels</li>
+                    <li>height: The height of the rectangle, in pixels</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>fillRect()</td>
+            <td><code>context.fillRect(x,y,width,height);</code></td>
+            <td>Draws a "filled" rectangle
+                <ul>
+                    <li>x: The x-coordinate of the upper-left corner of the rectangle</li>
+                    <li>y: The y-coordinate of the upper-left corner of the rectangle</li>
+                    <li>width: The width of the rectangle, in pixels</li>
+                    <li>height: The height of the rectangle, in pixels</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>strokeRect()</td>
+            <td><code>context.strokeRect(x,y,width,height);</code></td>
+            <td>Draws a rectangle (no fill)
+                <ul>
+                    <li>x: The x-coordinate of the upper-left corner of the rectangle</li>
+                    <li>y: The y-coordinate of the upper-left corner of the rectangle</li>
+                    <li>width: The width of the rectangle, in pixels</li>
+                    <li>height: The height of the rectangle, in pixels</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>clearRect()</td>
+            <td><code>context.clearRect(x,y,width,height);</code></td>
+            <td>Clears the specified pixels within a given rectangle
+                <ul>
+                    <li>x: The x-coordinate of the upper-left corner of the rectangle</li>
+                    <li>y: The y-coordinate of the upper-left corner of the rectangle</li>
+                    <li>width: The width of the rectangle, in pixels</li>
+                    <li>height: The height of the rectangle, in pixels</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    
+    <h4>Paths</h4>
+    <table class="mytable">
+        <tr>
+            <th>Method</th>
+            <th>Syntax</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>fill()</td>
+            <td><code>context.fill();</code></td>
+            <td>Fills the current drawing (path). The default color is black.</td>
+        </tr>
+        <tr>
+            <td>stroke()</td>
+            <td><code>context.stroke();</code></td>
+            <td>Actually draws the path you have defined with moveTo() and lineTo() methods. The default color is black.</td>
+        </tr>
+        <tr>
+            <td>beginPath()</td>
+            <td>context.beginPath();</td>
+            <td>Begins a path, or resets the current path</td>
+        </tr>
+        <tr>
+            <td>moveTo()</td>
+            <td><code>context.moveTo(x,y);</code></td>
+            <td>Moves the path to the specified point in the canvas, without creating a line
+                <ul>
+                    <li>x: The x-coordinate of where to move the path to</li>
+                    <li>y: The y-coordinate of where to move the path to</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>closePath()</td>
+            <td>context.closePath();</td>
+            <td>Creates a path from the current point back to the starting point</td>
+        </tr>
+        <tr>
+            <td>lineTo()</td>
+            <td><code>context.lineTo(x,y);</code></td>
+            <td>Adds a new point and creates a line to that point from the last specified point in the canvas
+                <ul>
+                    <li>x: The x-coordinate of where to create the line to</li>
+                    <li>y: The y-coordinate of where to create the line to</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>clip()</td>
+            <td>context.clip();</td>
+            <td>Clips a region of any shape and size from the original canvas</td>
+        </tr>
+        <tr>
+            <td>quadraticCurveTo()</td>
+            <td><code>context.quadraticCurveTo(cpx,cpy,x,y);</code></td>
+            <td>Creates a quadratic Bézier curve
+                <ul>
+                    <li>cpx: The x-coordinate of the Bézier control point</li>
+                    <li>cpy: The y-coordinate of the Bézier control point</li>
+                    <li>x: The x-coordinate of the ending point</li>
+                    <li>y: The y-coordinate of the ending point</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>bezierCurveTo()</td>
+            <td><code>context.bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y);</code></td>
+            <td>Creates a cubic Bézier curve
+                <ul>
+                    <li>cp1x: The x-coordinate of the first Bézier control point</li>
+                    <li>cp1y: The y-coordinate of the first Bézier control point</li>
+                    <li>cp2x: The x-coordinate of the second Bézier control point</li>
+                    <li>cp2y: The y-coordinate of the second Bézier control point</li>
+                    <li>x: The x-coordinate of the ending point</li>
+                    <li>y: The y-coordinate of the ending point</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>arc()</td>
+            <td><code>context.arc(x,y,r,sAngle,eAngle,counterclockwise);</code></td>
+            <td>Creates an arc/curve (used to create circles, or parts of circles)
+                <ul>
+                    <li>x: The x-coordinate of the center of the circle</li>
+                    <li>y: The y-coordinate of the center of the circle</li>
+                    <li>r: The radius of the circle</li>
+                    <li>sAngle: The starting angle, in radians (0 is at the 3 o'clock position of the arc's circle)</li>
+                    <li>eAngle: The ending angle, in radians</li>
+                    <li>counterclockwise: Optional. Specifies whether the drawing should be counterclockwise or clockwise. False is default, and indicates clockwise, while true indicates counter-clockwise.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>arcTo()</td>
+            <td><code>context.arcTo(x1,y1,x2,y2,r);</code></td>
+            <td>Creates an arc/curve between two tangents
+                <ul>
+                    <li>x1: The x-coordinate of the first tangent</li>
+                    <li>y1: The y-coordinate of the first tangent</li>
+                    <li>x2: The x-coordinate of the second tangent</li>
+                    <li>y2: The y-coordinate of the second tangent</li>
+                    <li>r: The radius of the arc</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>isPointInPath()</td>
+            <td><code>context.isPointInPath(x,y);</code></td>
+            <td>Returns true if the specified point is in the current path, otherwise false
+                <ul>
+                    <li>x: The x-coordinate to test</li>
+                    <li>y: The y-coordinate to test</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    
+    <h3>Canvas Examples</h3>
+    <p>Using these methods and properties we can begin to draw simple shapes and graphics.</p>
+    <div class="codeex">
+        <p>To make the canvas border obvious a dotted border has been added.</p>
+        <canvas id="mycanvas" style="border: dotted black" height="300" width="500"></canvas>
+        <button type="button" onclick="draw1()">Draw Rectangle</button>
+        <button type="button" onclick="draw2()">Draw Circle</button>
+        <button type="button" onclick="draw3()">Draw Line</button>
+        <button type="button" onclick="draw4()">Draw Text</button>
+        <button type="button" onclick="clearCanvas()">Clear Canvas</button>
+    </div>
+    
+    <h3>Canvas Transformations</h3>
+    <p>Transformations can also be applied to <code>&lt;canvas></code> elements. The methods used to do so are described below.</p>
+    
+    <table class="mytable">
+        <tr>
+            <th>Method</th>
+            <th>Syntax</th>
+            <th>Values</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>scale()</td>
+            <td><code>context.scale(scalewidth,scaleheight);</code></td>
+            <td>
+                <ul>
+                    <li>scalewidth: Scales the width of the current drawing (1=100%, 0.5=50%, 2=200%, etc.)</li>
+                    <li>scaleheight: Scales the height of the current drawing (1=100%, 0.5=50%, 2=200%, etc.)</li>
+                </ul>
+            </td>
+            <td>Scales the current drawing bigger or smaller</td>
+        </tr>
+        <tr>
+            <td>rotate()</td>
+            <td><code>context.rotate(angle);</code></td>
+            <td>angle: The roatation angle in radians.</td>
+            <td>Rotates the current drawing</td>
+        </tr>
+        <tr>
+            <td>translate()</td>
+            <td><code>context.translate(x,y);</code></td>
+            <td>
+                <ul>
+                    <li>x: The value to add to horizontal (x) coordinates</li>
+                    <li>y: The value to add to vertical (y) coordinates</li>
+                </ul>
+            </td>
+            <td>Remaps the (0,0) position on the canvas</td>
+        </tr>
+        <tr>
+            <td>transform()</td>
+            <td><code>context.transform(a,b,c,d,e,f);</code></td>
+            <td>
+                <ul>
+                    <li>a: Horizontal scaling</li>
+                    <li>b: Horizontal skewing</li>
+                    <li>c: Vertical skewing</li>
+                    <li>d: Vertical scaling</li>
+                    <li>e: Horizontal translate</li>
+                    <li>f: Vertical translate</li>
+                </ul>
+            </td>
+            <td>Replaces the current transformation matrix for the drawing</td>
+        </tr>
+        <tr>
+            <td>setTransform()</td>
+            <td><code>context.setTransform(a,b,c,d,e,f);</code></td>
+            <td>
+                <ul>
+                    <li>a: Horizontal scaling</li>
+                    <li>b: Horizontal skewing</li>
+                    <li>c: Vertical skewing</li>
+                    <li>d: Vertical scaling</li>
+                    <li>e: Horizontal translate</li>
+                    <li>f: Vertical translate</li>
+                </ul>
+            </td>
+            <td>Resets the current transform to the identity matrix. Then runs transform()</td>
+        </tr>
+    </table>
+    
+    <h3>Canvas Transformation Examples</h3>
+    <p>In the following example, the yellow box is drawn first. The transformation matrix is then reset and the red box drawn. The same process is then done with the blue box.</p>
+    <div class="codeex">
+        <canvas id="mycanvas2" height="300" width="500"></canvas>
+        <button type="button" onclick="draw5()">Draw and Transform</button>
+    </div>
+    
+</body>
+</html>

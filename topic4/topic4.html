@@ -17,7 +17,100 @@
     </script>
     
     <h1>Using AJAX to Consume a JSON Web Service</h1>
+    <h3>What is AJAX?</h3>
+    <p>AJAX stands for Asynchronous JavaScript And XML. It is not a programming language, but rather a technique to allow web pages to be updated asynchronously by exchanging data with a web server behind the scenes. The process starts after an event that triggers a request. An XMLHttpRequest object is created and a request is sent to the web server. The server will then process the HttpRequest, create a response, and send it back to the broswer. The response is then read and processed using JavaScript and the proper action can be taken. This may be updating the page content using JavaScript.</p>
+    <h3>XMLHttpRequest Object</h3>
+    <p>The XMLHttpRequest object is the keystone of AJAX and the vehicle used to exchange data with the web server. </p>
+    <h4>Methods</h4>
+    <table id="xhr-methods" class="mytable">
+        <tr>
+            <th>Method</th>
+            <th>Definition</th>
+        </tr>
+        <tr>
+            <td>new XMLHttpRequest()</td>
+            <td>This is used to create a new XMLHttpRequest object</td>
+        </tr>
+        <tr>
+            <td>abort()</td>
+            <td>This will cancel the current request</td>
+        </tr>
+        <tr>
+            <td>getAllResponseHeaders()</td>
+            <td>Returns all header information</td>
+        </tr>
+        <tr>
+            <td>getResponseHeader()</td>
+            <td>Returns specific header information</td>
+        </tr>
+        <tr>
+            <td>open(method, url, async, user, pw)</td>
+            <td>Used to specify the request
+                <ul>
+                    <li>method defines the type of request, either GET or POST</li>
+                    <li>url defines the location of the file</li>
+                    <li>async is either true for an asynchronous request, or false for a synchronous request</li>
+                    <li>username (optional)</li>
+                    <li>password (optional)</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>send()</td>
+            <td>Used to send the request to the server for GET requests</td>
+        </tr>
+        <tr>
+            <td>send(string)</td>
+            <td>Used to send the request to the server for POST requests</td>
+        </tr>
+        <tr>
+            <td>setRequestHeader()</td>
+            <td>Used to add a key/value pair to the request header</td>
+        </tr>
+    </table>
     
+    <h4>Properties</h4>
+    <table id="xhr-properties" class="mytable">
+        <tr>
+            <th>Property</th>
+            <th>Definition</th>
+        </tr>
+        <tr>
+            <td>onreadystatechange</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>readyState</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>responseText</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>responseXML</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>status</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>statusText</td>
+            <td></td>
+        </tr>
+    </table><br>
+    
+    <h3>Examples</h3>
+    <p>The following example will make a request to http://date.jsontest.com for the date and time. The request state will update as the readyState property changes. The raw response will be displayed when it has been received.</p>
+    <div class="codeex">
+        <button id='sendrequest' value='send' onclick="getTime()">Get Time</button>
+        <p>Raw Response: <code id="response"></code></p>
+        <p>Request State: <code id="state"></code></p>
+        <p>Response Status: <code id="status"></code></p>
+        <p>Response Status Text: <code id="statustext"></code></p>
+        
+    </div>
     
  </body>
 </html>

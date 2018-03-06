@@ -4,7 +4,7 @@
   <link rel="stylesheet" type="text/css" href="../mystyle.css">
     <script type="text/javascript" src="js-topic9.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <title>Brandon Francois - Topic 6</title>
+  <title>Brandon Francois - Topic 9</title>
 </head>
 <body>
     <div id="nav-placeholder">
@@ -16,7 +16,35 @@
          });
      </script>
     
-     <h1>JavaScript Events (onTouchBegin) and Animation and Transition Events</h1>
+     <h1>JavaScript Events (onTouchStart) and Animation and Transition Events</h1>
+    <h3>Events</h3>
+    <p>JavaScript can be executed when an event occurs. Some examples of HTML events that can trigger JavaScript are:
+    </p>
+    <ul>
+        <li>Mouse click</li>
+        <li>Mouse over an element</li>
+        <li>Web page has loaded</li>
+        <li>Input field changed</li>
+        <li>Form submitted</li>
+        <li>Key pressed on the keyboard</li>
+        <li>Mobile screen pressed</li>
+        <li>etc...</li>
+    </ul>
+    <div class="codeex">
+        <p>To execute code when an event occurs an HTML event attribute can be added to the element. For example, if we want JavaScript to execute when an element is clicked we might do this:</p>
+        <code>&lt;button onclick="this.innerHTML = 'Ouch!'">Don't Click Me&lt;/button></code><br>
+        <button onclick="this.innerHTML = 'Ouch!'">Don't Click Me</button>
+        <p>Alternatively, we might add an event listener to the element to execute the JavaScript. This is done using the <code>addEventListener()</code> method.</p>
+        <code>document.getElementById("myButton").addEventListener("click", ouch);</code><br>
+        <code>&lt;button id="myButton">Don't Click Me&lt;/button></code><br>
+        <button id="myButton">Don't Click Me</button>
+    </div>
+    
+    <p>onTouchStart</p>
+    <div class="codeex">
+        <div class="box"></div>
+    </div>
+    
     
 </body>
 </html>

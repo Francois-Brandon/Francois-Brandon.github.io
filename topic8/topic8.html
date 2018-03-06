@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="../mystyle.css">
+    <script type="text/javascript" src="js-topic8.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <title>Brandon Francois - Topic 8</title>
+</head>
+<body>
+    <div id="nav-placeholder">
+    </div>
+
+    <script>
+        $(function(){
+        $("#nav-placeholder").load("../nav.html");
+         });
+    </script>
+    
+    <h1>CSS3 Transitions and Animations and triggering them with JavaScript</h1>
+    <h3>Transition Properties</h3>
+    <p>
+       Below is a table which defines the various properties available to a transition. CSS transitions allow for a smooth change from one property value to another. The only transition property required for the transition to occur is duration. By default the duration is 0s, so there would be no transition unless specified. When defining the transition property, multiple properties can be included by separting them with a comma.
+    </p>
+    
+    <table id="transition-properties" class="mytable">
+        <tr>
+            <th>Property</th>
+            <th>Definition</th>
+            <th>Syntax</th>
+        </tr>
+        <tr>
+            <td>transition</td>
+            <td>Allows for shorthand definition of the following properties. Duration should always be specified</td>
+            <td><code>transition: property duration timing-function delay|initial|inherit;</code></td>
+        </tr>
+        <tr>
+            <td>transition-delay</td>
+            <td>Specifies a delay (in seconds) for the transition effect</td>
+            <td><code>transition-delay: time|initial|inherit;</code></td>
+        </tr>
+        <tr>
+            <td>transition-duration</td>
+            <td>Specifies the length of time (in seconds) the transition effect will take</td>
+            <td><code>transition-duration: time|initial|inherit;</code></td>
+        </tr>
+        <tr>
+            <td>transition-property</td>
+            <td>Specifies the name of the CSS property that the transition effect is for</td>
+            <td><code>transition-property: none|all|property|initial|inherit;</code></td>
+        </tr>
+        <tr>
+            <td>transition-timing-function</td>
+            <td>Specifies the speed curve for the transition effect</td>
+            <td><code>transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|<br>step-start|step-end|steps(int,start|end)|cubic-bezier(n,n,n,n)|initial|inherit;</code></td>
+        </tr>
+    </table><br>
+    
+    <p>Transition-timing-function has several values available to be used.</p>
+    
+    <table id="timing" class="mytable">
+        <tr>
+            <th>Value</th>
+            <th>Definition</th>
+            <th>Syntax</th>
+        </tr>
+        <tr>
+            <td>ease</td>
+            <td>This is the default value. The transition will start slow, go fast, then finish slow</td>
+            <td><code>transition-timing-function: ease;</code></td>
+        </tr>
+        <tr>
+            <td>linear</td>
+            <td>The transition speed will be consistent from start to end</td>
+            <td><code>transition-timing-function: linear;</code></td>
+        </tr>
+        <tr>
+            <td>ease-in</td>
+            <td>The transition will start slow then maintain a consistent speed</td>
+            <td><code>transition-timing-function: ease-in;</code></td>
+        </tr>
+        <tr>
+            <td>ease-out</td>
+            <td>The transition will begin at a consistent speed then slow down at the end</td>
+            <td><code>transition-timing-function: ease-out;</code></td>
+        </tr>
+        <tr>
+            <td>ease-in-out</td>
+            <td>The transition will have both a slow start and a slow end</td>
+            <td><code>transition-timing-function: ease-in-out;</code></td>
+        </tr>
+        <tr>
+            <td>steps</td>
+            <td>This defines a stepping function that takes two parameters. The first parameter should be a positive integer.<br> This specifies the number of intervals. The second parameter is optional and can be either <code>start</code> or <code>end</code>.<br> This parameter indicates when in the interval the change of value should occur.</td>
+            <td><code>transition-timing-function: steps(int,start|end);</code></td>
+        </tr>
+        <tr>
+            <td>step-start</td>
+            <td>Equivalent to <code>steps(1, start)</code></td>
+            <td><code>transition-timing-function: step-start;</code></td>
+        </tr>
+        <tr>
+            <td>step-end</td>
+            <td>Equivalent to <code>steps(1, end)</code></td>
+            <td><code>transition-timing-function: step-end;</code></td>
+        </tr>
+        <tr>
+            <td>cubic-bezier</td>
+            <td>This defines a Cubic Bezier curve. The curve is defined by four points, p0 to p3. We are only concerned<br> with the points p1 and p2 as p0 will always be 0,0 and p3 will always be 1,1. The cubic-bezier function<br> takes four parameters which are the coordinates for two points. The first two parameters are the x and y<br> coordinates of p1 and the second are the x and y coordinates for p2. A curve will be created based on<br> those points. The curve will then define the timing of the transition.</td>
+            <td><code>transition-timing-function: cubic-bezier(x1,y1,x2,y2);</code></td>
+        </tr>
+    </table><br>
+    
+    <h3>Transition Examples</h3>
+    <p>During my research I focused on two ways that a transition can be triggered using JavaScript. The first is by updating the CSS class of the element, and the second is by adding the transition style property to the element. The following examples execute the transitions by adding a new class to the element. The original CSS class specifies the transition properties so when those properties change the transition will occur.  </p>
+    <div class="codeex">
+        <div class='box'>Move from here...</div> 
+        <button id='toggleButton' value='play' onclick="transition1()">Play</button>
+
+        <div class='box2'></div> 
+        <button id='toggleButton2' value='play' onclick="transition2()">Play</button>
+    </div>
+    
+    <h3>Animation Properties</h3>
+    <table id="animation-properties" class="mytable">
+        <tr>
+            <th>Property</th>
+            <th>Definition</th>
+            <th>Syntax</th>
+        </tr>
+        <tr>
+            <td>animation</td>
+            <td>Allows for shorthand definition of the following properties. Duration should always be specified.</td>
+            <td><code>animation: name duration timing-function delay iteration-count direction fill-mode play-state;</code></td>
+        </tr>
+        <tr>
+            <td>animation-delay</td>
+            <td>Specifies a delay (in seconds) for the animation</td>
+            <td><code>animation-delay: time|initial|inherit;</code></td>
+        </tr>
+        <tr>
+            <td>animation-direction</td>
+            <td>This specifies if the animation should be played forwards, backwards, or in alternate cycles. There are several property values available.
+                <ul>
+                    <li><code>normal</code> is the default value, and will play the animation forwards.</li>
+                    <li><code>reverse</code> will play it backwards.</li>
+                    <li><code>alternate</code> will play forwards first, then backwards.</li>
+                    <li><code>alternate-reverse</code> will play backwards firts, then forwards.</li>
+                </ul>
+            </td>
+            <td><code>animation-direction: normal|reverse|alternate|alternate-reverse|initial|inherit;</code></td>
+        </tr>
+        <tr>
+            <td>animation-duration</td>
+            <td>This specifies how long the animation should take to complete.</td>
+            <td><code>animation-duration: time|initial|inherit;</code></td>
+        </tr>
+        <tr>
+            <td>animation-fill-mode</td>
+            <td>This specifies a style for the element before the animation starts and/or after it plays. Possible values:
+                <ul>
+                    <li><code>none</code> is the default value, animation will not apply any styles before or after it runs</li>
+                    <li><code>forwards</code> will cause the element to keep the style values set by the last keyframe after the animation is complete</li>
+                    <li><code>backwards</code> will case the element to keep the style values that are set by the first keyframe. The style will be retained during any delay period.</li>
+                    <li><code>both</code> will implement the behavior of both <code>forwards</code> and <code>backwards</code></li>
+                </ul>
+            </td>
+            <td><code>animation-fill-mode: none|forwards|backwards|both|initial|inherit;</code></td>
+        </tr>
+        <tr>
+            <td>animation-iteration-count</td>
+            <td>This specifies the number of times the animation should be played. The default value is 1, meaning the animation will be played through a single time. The value <code>infinite</code> can also be used in place of a number to indicate that the amimation should play indefinitely.
+            </td>
+            <td><code>animation-iteration-count: number|infinite|initial|inherit;</code></td>
+        </tr>
+        <tr>
+            <td>animation-name</td>
+            <td>This is used to specify a name for the @keyframes animation. The default value is none, meaning there will be no animation.</td>
+            <td><code>animation-name: keyframename|none|initial|inherit;</code></td>
+        </tr>
+        <tr>
+            <td>animation-play-state</td>
+            <td>This property specifies the state of the animation, whether it is running or paused. The default value is <code>running</code>.</td>
+            <td><code>animation-play-state: paused|running|initial|inherit;</code></td>
+        </tr>
+        <tr>
+            <td>animation-timing-function</td>
+            <td>Specifies the speed curve for the animation. The possible values are the same as <code>transition-timing-function</code>. The default value is <code>ease</code>.</td>
+            <td><code>animation-timing-function: linear|ease|ease-in|ease-out|ease-in-out|step-start|step-end|steps(int,start|end)|cubic-bezier(n,n,n,n)|initial|inherit;</code></td>
+        </tr>
+    </table><br>
+    
+    <h3>Animation Examples</h3>
+    <div class="codeex codeexsize">
+        <button id='animationButton' value='play' onclick="animateBox()">Play</button>
+        <div id='box3'></div>
+        
+    </div><br>
+    
+    <div class="codeex codeexsize">
+        <button id='cupButton' value='play' onclick="animateCups()">Play</button><br>
+        <div id="cupgame">
+            <div id='cup1' class="cup"><img src="cup.png"></div>
+            <div id='cup2' class="cup"><img src="cup.png"></div>
+            <div id='cup3' class="cup"><img src="cup.png"></div>
+        </div>
+        
+    </div>
+    
+</body>
+</html>
