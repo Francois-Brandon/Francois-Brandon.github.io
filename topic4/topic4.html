@@ -18,7 +18,7 @@
     
     <h1>Using AJAX to Consume a JSON Web Service</h1>
     <h3>What is AJAX?</h3>
-    <p>AJAX stands for Asynchronous JavaScript And XML. It is not a programming language, but rather a technique to allow web pages to be updated asynchronously by exchanging data with a web server behind the scenes. The process starts after an event that triggers a request. An XMLHttpRequest object is created and a request is sent to the web server. The server will then process the HttpRequest, create a response, and send it back to the broswer. The response is then read and processed using JavaScript and the proper action can be taken. This may be updating the page content using JavaScript.</p>
+    <p>AJAX stands for Asynchronous JavaScript And XML. It is not a programming language, but rather a technique to allow web pages to be updated asynchronously by exchanging data with a web server behind the scenes. The process starts after an event that triggers a request. An XMLHttpRequest object is created and a request is sent to the web server. The server will then process the HttpRequest, create a response, and send it back to the broswer. The response is then read and processed using JavaScript and the proper action can be taken. This action may be updating the page content using JavaScript.</p>
     <h3>XMLHttpRequest Object</h3>
     <p>The XMLHttpRequest object is the keystone of AJAX and the vehicle used to exchange data with the web server. </p>
     <h4>Methods</h4>
@@ -77,37 +77,55 @@
         </tr>
         <tr>
             <td>onreadystatechange</td>
-            <td></td>
+            <td>Defines a function to be called when the readyState property changes</td>
         </tr>
         <tr>
             <td>readyState</td>
-            <td></td>
+            <td>Holds the status of the XMLHttpRequest.
+                <ul>
+                    <li>0: request not initialized</li>
+                    <li>1: server connection established</li>
+                    <li>2: request received </li>
+                    <li>3: processing request </li>
+                    <li>4: request finished and response is ready</li>
+                </ul>
+            </td>
         </tr>
         <tr>
             <td>responseText</td>
-            <td></td>
+            <td>Returns the response data as a string</td>
         </tr>
         <tr>
             <td>responseXML</td>
-            <td></td>
+            <td>Returns the response data as XML data</td>
         </tr>
         <tr>
             <td>status</td>
-            <td></td>
+            <td>Returns the status-number of a request</td>
         </tr>
         <tr>
             <td>statusText</td>
-            <td></td>
+            <td>Returns the status-text</td>
         </tr>
     </table><br>
     
     <h3>Examples</h3>
     <p>The following example will make a request to https://jsonplaceholder.typicode.com/posts/1 for some generic data. The request state will update as the readyState property changes. The raw response will be displayed when it has been received.</p>
     <div class="codeex">
-        <button id='sendrequest' value='send' onclick="getTime()">Send Request</button>
-        <p>Raw Response: <code id="response"></code></p>
-        <p>Request State: <code id="state"></code></p>
-        <p>Response Status: <code id="status"></code></p>
+        <button id='sendrequest1' value='send1' onclick="getPost()">Send Request</button>
+        <p>Raw Response: <code id="response1"></code></p>
+        <p>Request State: <code id="state1"></code></p>
+        <p>Response Status: <code id="status1"></code></p>
+        
+    </div><br>
+    
+    <p>This next example will make a request to https://jsonplaceholder.typicode.com/photos/1 for photo data. The response will be parsed and the image added to the page below.</p>
+    <div class="codeex">
+        <button id='sendrequest2' value='send2' onclick="getPhoto()">Send Request</button>
+        <p>Raw Response: <code id="response2"></code></p>
+        <p>Request State: <code id="state2"></code></p>
+        <p>Response Status: <code id="status2"></code></p>
+        <img id="image" src="">
         
     </div>
     
