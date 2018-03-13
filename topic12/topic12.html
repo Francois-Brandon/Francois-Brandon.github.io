@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../mystyle.css">
+    <script type="text/javascript" src="js-topic12.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <title>Brandon Francois - Topic 12</title>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <script>
+        $(function(){
+        $("#nav-placeholder").load("../nav.html");
+        });
+    </script>
+    
+    <h1>Designing, Defining, and Triggering CSS3 Transforms</h1>
+    
+    <p>For additional examples and information go to <a href="../topic8/topic8.html">Topic 8</a></p>
+    
+    <div class="codeex">
+        <p>Hover over images to view various transformations</p>
+        <img src="../topic11/24f355.png" class="zoom">
+        <img src="../topic11/771796.png" class="wiggle">
+        <img src="../topic11/92c952.png" class="skew">
+    </div><br>
+    
+    <div class="codeex">
+        <h4>Tic Tac Toe</h4>
+        <p>Click in the boxes to play a game of tic-tac-toe.</p>
+        <table class="tictactoe">
+            <tr>
+                <td onclick="addMark('topleft')"><div id="topleft"></div></td>
+                <td onclick="addMark('topmiddle')"><div id="topmiddle"></div></td>
+                <td onclick="addMark('topright')"><div id="topright"></div></td>
+            </tr>
+            <tr>
+                <td onclick="addMark('middleleft')"><div id="middleleft"></div></td>
+                <td onclick="addMark('middlemiddle')"><div id="middlemiddle"></div></td>
+                <td onclick="addMark('middleright')"><div id="middleright"></div></td>
+            </tr>
+            <tr>
+                <td onclick="addMark('bottomleft')"><div id="bottomleft"></div></td>
+                <td onclick="addMark('bottommiddle')"><div id="bottommiddle"></div></td>
+                <td onclick="addMark('bottomright')"><div id="bottomright"></div></td>
+            </tr>
+        </table>
+        <div id="buttonWrapper">
+            <button onclick="resetGame()">Reset Game</button>
+        </div>
+    </div>
+    
+</body>
+</html>

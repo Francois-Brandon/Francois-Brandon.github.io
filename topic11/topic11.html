@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../mystyle.css">
+    <script type="text/javascript" src="js-topic11.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <title>Brandon Francois - Topic 11</title>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <script>
+        $(function(){
+        $("#nav-placeholder").load("../nav.html");
+        });
+    </script>
+    
+    <h1>Designing, Defining, and Triggering CSS3 Transitions</h1>
+    
+    <p>For additional examples and information go to <a href="../topic8/topic8.html">Topic 8</a></p>
+    
+    <div class="codeex">
+        <p>Click on the button to view the button transition</p>
+        <div id="buttonWrapper">
+            <button class="pressed">BIG RED BUTTON</button>
+        </div>
+    </div><br>
+    
+    <div class="codeex">
+        <p>Hover over picture to view transition</p>
+        <div id="pictrans">
+            <img class="below" src="cactus_snow.jpg"/>
+            <img class="above" src="monument_valley.jpg"/>
+        </div>
+    </div><br>
+    
+    <div class="codeex">
+        <p>Use navigation arrows to transition between pictures</p>
+        <div id="gallerywrapper">
+        <button id="lbutton"><img src="arrow-left.png" width="25"/></button>
+        <div id="gallery">
+            <img id="first" src="cactus_snow.jpg"/>
+            <img id="second" src="monument_valley.jpg"/>
+        </div>
+        <button id="rbutton"><img src="arrow-right.png" width="25"/></button>
+        </div>
+    </div>
+    
+    
+
+    
+    
+</body>
+</html>

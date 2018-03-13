@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
 .codeex {
     width: 600px;
     margin: auto;
@@ -16,9 +18,12 @@
     color: #660000;
 }
 
+.codeextended {
+    height: 475px;
+}
+
 code {
     color: darkgreen;
-    
 }
 
 h1, h4 {
@@ -172,6 +177,246 @@ End for Topic 8
     width: 80%;
 }
 
+.pressed {
+    border: 1px solid black;
+    background: #e60000;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    box-shadow: 0 8px 0 #800000;
+    color: #fff;
+    margin: 0;
+    outline: 0;
+    padding: 12px 20px;
+    transition: all .1s linear;
+}
+
+.pressed:active {
+    box-shadow: 0 2px 0 #800000;
+    transform: translateY(6px);
+}
+
+.pressed:hover {
+    background-color: #e60000;
+    color: #fff;
+}
+
+#pictrans {
+    position:relative;
+    height:220px;
+    width:400px;
+    margin:0px auto;
+}
+
+#pictrans img {
+    position:absolute;
+    left:0;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+#pictrans img.above:hover {
+    opacity:0;
+}
+
+#gallery {
+    position:relative;
+    height:220px;
+    width:400px;
+    margin:0px auto;
+}
+
+#gallery img {
+    position:absolute;
+    left:0;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+.opaque {
+    opacity:0;
+}
+
+#gallerywrapper {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+#lbutton {
+    background-color: whitesmoke;
+}
+
+#rbutton {
+    background-color: whitesmoke;
+}
+
+#rocket {
+    margin-top: 65%;
+    animation: rocketlaunch 8s linear 2s infinite;
+}
+
+#smokeleft {
+    position: absolute;
+    left: 47%;
+    bottom: 7px;
+    width: 30px;
+    opacity: 0;
+    animation: launchsmoke1 8s ease-out 2s infinite;
+}
+
+#smokeright {
+    position: absolute;
+    left: 51%;
+    bottom: 7px;
+    width: 30px;
+    opacity: 0;
+    animation: launchsmoke2 8s ease-out 2s infinite;
+}
+
+@keyframes rocketlaunch {
+    0%  {-webkit-transform: translate(0px, 0px); }
+    13%  {-webkit-transform:translate(0px, -300px);}
+    22%  {-webkit-transform:translate(50px, -350px) rotate(45deg);}
+    31%  {-webkit-transform:translate(100px, -400px) rotate(90deg);}
+    40%  {-webkit-transform:translate(150px, -350px) rotate(135deg);}
+    49%  {-webkit-transform:translate(200px, -300px) rotate(180deg);}
+    58%  {-webkit-transform:translate(150px, -250px) rotate(225deg);}
+    67%  {-webkit-transform:translate(100px, -200px) rotate(270eg);}
+    76%  {-webkit-transform:translate(50px, -250px) rotate(315deg);}
+    85%  {-webkit-transform:translate(0px, -300px) rotate(360deg);}
+    95%  {-webkit-transform:translate(0px, 0px) rotate(360deg);}
+    100%  {-webkit-transform:translate(0px, 0px) rotate(360deg);}
+}
+
+@keyframes launchsmoke1 {
+    0%  {-webkit-transform: translate(0px, 0px) scale(1,1); opacity: 0;}
+    20% {-webkit-transform: translate(-20px, -10px) scale(2,2); opacity: 1;}
+    90% {-webkit-transform: translate(-40px, -15px) scale(3,3); opacity: 0}
+    100% {-webkit-transform: translate(-45px, -15px) scale(3,3); opacity: 0}
+}
+
+@keyframes launchsmoke2 {
+    0%  {-webkit-transform: translate(0px, 0px) scale(1,1); opacity: 0;}
+    20% {-webkit-transform: translate(20px, -10px) scale(2,2); opacity: 1;}
+    90% {-webkit-transform: translate(40px, -15px) scale(3,3); opacity: 0}
+    100% {-webkit-transform: translate(45px, -15px) scale(3,3); opacity: 0}
+}
+
+.tictactoe {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    font-family: 'Lato', sans-serif;
+}
+
+.tictactoe td {
+    border: 2px solid black;
+    height: 100px;
+    width: 100px;
+    font-size: 4em;
+    text-align: center;
+    -webkit-transform: scale(1.0);
+    -ms-transform: scale(1.0);
+    transform: scale(1.0);
+    transition-duration: .5s;
+}
+
+.tictactoe td:hover {
+    border: 2px solid gray;
+    height: 100px;
+    width: 100px;
+    font-size: 4em;
+    text-align: center;
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+    transition-duration: .5s; 
+}
+
+.mark-transform-o {
+    color: blue;
+    animation: tic-tac-toe 1.5s ease-in-out 0s 1;
+}
+.mark-transform-x {
+    color: green;
+    animation: tic-tac-toe 1.5s ease-in-out 0s 1;
+}
+
+@keyframes tic-tac-toe {
+    0%  {-webkit-transform: scale(0.1);}
+    50%  {-webkit-transform: rotate(360deg) scale(1.6);}
+    100%  {-webkit-transform: rotate(0deg) scale(1.0);}
+}
+
+.zoom {
+    display: inline-block;
+    position: relative;
+    margin: 20px;    
+    -webkit-transform: scale(1.0);
+    -ms-transform: scale(1.0);
+    transform: scale(1.0);
+    transition-duration: .5s;
+}
+
+.zoom:hover {
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+    transition-duration: .5s;  
+}
+
+.wiggle {
+    display: inline-block;
+    position: relative;
+    margin: 20px;
+}
+
+.wiggle:hover {
+    animation: wiggles 1s ease;  
+}
+
+@keyframes wiggles {
+    15% {-webkit-transform: translateX(5px); transform: translateX(5px);}
+    30% {-webkit-transform: translateX(-5px); transform: translateX(-5px);}
+    50% {-webkit-transform: translateX(3px); transform: translateX(3px);}
+    65% {-webkit-transform: translateX(-3px); transform: translateX(-3px);}
+    80% {-webkit-transform: translateX(2px); transform: translateX(2px);}
+    100%{-webkit-transform: translateX(0); transform: translateX(0);}
+}
+
+.skew {
+    display: inline-block;
+    position: relative;
+    margin: 20px;    
+    -webkit-transform: scale(1.0);
+    -ms-transform: scale(1.0);
+    transform: scale(1.0);
+    transition-duration: .5s;
+}
+
+.skew:hover {
+    -webkit-transform: scale(1.3) skewX(10deg);
+    -ms-transform: scale(1.3) skewX(10deg);
+    transform: scale(1.3) skew(10deg, -10deg);
+    transition-duration: .5s;  
+}
+
+
+.tranbox {
+    font-size:12px;
+    position:relative;
+    width:60px;
+    height:60px;
+    border-radius: 30px;
+    margin-bottom:10px;
+    background-color:blue;
+}
+
 .codeexsize {
     height: 400px;
 }
@@ -275,3 +520,42 @@ End for Topic 8
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.ex1 {
+    
+}
+
+.cube {
+    font-size: 4em;
+    width: 2em;
+    margin: 1.5em auto;
+    transform-style: preserve-3d;
+    transform: rotateX(-45deg) rotateY(30deg);
+    animation: spin 5s infinite linear;
+}
+
+@keyframes spin {
+	from { transform: rotate3d(0, 0, 0, 0); }
+	to { transform: rotate3d(.2, 1, 0, 360deg); }
+}
+
+.side {
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    background: rgba(255,255,255,.8);
+    border: 1px solid black;
+    text-align: center;
+    line-height: 2em;
+}
+
+.side img {
+    width: 1.75em;
+}
+
+.front {transform: translateZ(1em);}
+.top {transform: rotateX(90deg) translateZ(1em);}
+.right {transform: rotateY(90deg) translateZ(1em);}
+.left {transform: rotateY(-90deg) translateZ(1em);}
+.bottom {transform: rotateX(-90deg) translateZ(1em);}
+.back {transform: rotateY(-180deg) translateZ(1em);}
