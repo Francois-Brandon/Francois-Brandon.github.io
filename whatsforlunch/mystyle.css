@@ -1,0 +1,614 @@
+/*Reset styles*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+ 
+ins {
+    text-decoration: none;
+}
+del {
+    text-decoration: line-through;
+}
+ 
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*begin our styles*/
+ 
+body {
+    font: 16px/1.4em 'PT Sans', sans-serif;;
+    color: #1c1c1c;
+}
+ 
+p,
+ul {
+    margin: 0 0 1.5em;
+}
+ 
+ul {
+    list-style: disc;
+    padding: 0 0 0 20px;
+}
+  
+h1 {
+ 
+}
+ 
+h2 {
+    font-family: 'PT Serif', serif;
+    font-size: 32px;
+    line-height: 1.4em;
+    margin: 0 0 .4em;
+    font-weight: bold;
+}
+ 
+/*layout*/
+ 
+.wrapper {
+}
+  
+/*header*/
+ 
+header {
+    background: #193366;
+    padding: 15px 20px;
+}
+ 
+/*shorter clearfix http://nicolasgallagher.com/micro-clearfix-hack/*/
+header:before, header:after {
+    content:"";
+    display:table;
+}
+         
+header:after {
+    clear:both;
+}
+         
+/* For IE 6/7 (trigger hasLayout) */
+header {
+    zoom:1;
+}
+ 
+h1.logo a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 20px;
+    line-height: 22px;
+    float: right;
+    letter-spacing: 0.2em;
+}
+
+.subhead {
+    background: #b6b9c8;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    
+}
+ 
+a.to_nav {
+    float: left;
+    color: #fff;
+    background: #2851a4;
+    text-decoration: none;
+    padding: 0 10px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 22px;
+    height: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+ 
+a.to_nav:hover,
+a.to_nav:focus {
+    color: #1c1c1c;
+    background: #ccc;
+}
+
+/*navigation*/ 
+ 
+#primary_nav ul {
+    list-style: none;
+    background: #193366;
+    padding: 5px 0;
+}
+ 
+#primary_nav li a {
+    display: block;
+    padding: 0 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    letter-spacing: 0.1em;
+    line-height: 2em;
+    height: 2em;
+    border-bottom: 1px solid #0a1429;
+}
+ 
+#primary_nav li:last-child a {
+    border-bottom: none;
+}
+ 
+#primary_nav li a:hover,
+#primary_nav li a:focus {
+    color: #1c1c1c;
+    background: #ccc;
+}
+ 
+/*footer*/
+footer {
+    font-family: 'PT Serif', serif;
+    font-style: italic;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Style inputs, select elements and textareas*/ 
+input[type=text] {
+    border: 1px solid transparent;
+    border-bottom: 1px solid #193366;
+    background-color: #fff;
+    padding: 10px;
+    font-size: .8em;
+    width: 200px;
+}
+
+/* Style the label to display next to the inputs */
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+/* Style the submit button */
+input[type=button] {
+  background-color: #2851a4;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float:none;
+    font: inherit;
+}
+
+#location-error {
+    color: red;
+    font-size: .8em;
+}
+
+#search {
+  background-color: #2851a4;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float:none;
+    font: inherit;
+}
+
+#results tr {
+    border: solid 1px black;
+    padding: 3px;
+    text-align: center;
+}
+
+
+#results th {
+    color: #fff;
+    background: #193366;
+    text-align: center;
+}
+
+#search-container, #results-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Style the container */
+.container {
+    border-radius: 5px;
+    background-color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Floating column for labels: 25% width */
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+/* Floating column for inputs: 75% width */
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 1em;
+}
+
+/* Floating column for inputs: 75% width */
+.col-100 {
+  float: left;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.txt-center {
+    text-align: center;
+}
+.hide {
+    display: none;
+}
+
+.clear {
+    float: none;
+    clear: both;
+}
+
+
+
+.rating {
+    width: 90px;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    position: relative;
+}
+
+.rating > label {
+    float: right;
+    display: inline;
+    padding: 0;
+    padding-top: 0em;
+    margin: 0;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+    color: #000;
+    
+}
+
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input.radio-btn:checked ~ label {
+    color: transparent;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: #FFD700;
+    animation: staranimate 1s ease-in-out 0s 1;
+}
+
+@keyframes staranimate {
+    0%  {-webkit-transform: scale(1.0);}
+    50%  {-webkit-transform: scale(1.6);}
+    100%  {-webkit-transform: scale(1.0);}
+}
+
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 70%; /* Full-width */
+    height: 20px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #193366;
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 10px;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #193366;
+    cursor: pointer; /* Cursor on hover */
+}
+
+#range {
+    position: relative;
+    bottom: .25em;
+}
+
+.checkcontainer {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkcontainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkcontainer:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkcontainer input:checked ~ .checkmark {
+  background-color: #193366;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkcontainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkcontainer .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.checklabel {
+   position: relative;
+    bottom: .4em;
+}
+
+* { box-sizing: border-box; }
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+/*.autocomplete input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: .8em;
+}
+.autocomplete input[type=text] {
+    background-color: #f1f1f1;
+    width: 100%;
+    margin-bottom: .5em;
+}*/
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9; 
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: #193366 !important; 
+  color: #ffffff; 
+}
+
+.addcategory {
+    background-color: #2851a4;
+    color: white;
+    padding: .4em .75em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float:none;
+    font: inherit;
+}
+
+.price-select {
+    border: 1px solid black;
+    height: 3em;
+}
+
+.segmented-control {
+    display: table;
+    width: 100%;
+    margin: 0em 0;
+    padding: 0;
+}
+
+.segmented-control__item {
+    display: table-cell;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.segmented-control__input {
+    position: absolute;
+    visibility: hidden;
+}
+
+.segmented-control__label {
+    display: block;
+    margin: 0 -1px -1px 0; /* -1px margin removes double-thickness borders between items */
+    padding: 1em .25em;
+
+    border: 1px solid #ddd;
+
+    font: inherit; 
+    text-align: center;  
+
+    cursor: pointer;
+}
+
+.segmented-control__label:hover {
+    background: #fafafa;
+}
+
+.segmented-control__input:checked + .segmented-control__label {
+    background: #eee;
+    color: #333;
+    
+}
+
+
+@media only screen and (min-width: 768px) {
+    a.to_nav {
+        display: none;
+    }
+    
+    .logo {
+        float: left;
+    }
+    
+    .wrapper {
+        position: relative;
+        width: 768px;
+        margin: auto;
+    }
+     
+    #primary_nav {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        background: none;
+    }
+     
+    #primary_nav li {
+        display: inline;
+    }
+     
+    #primary_nav li a {
+        float: left;
+        border: none;
+        padding: 0 10px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+    }
+    
+    #primary_nav li.top {
+    display: none;
+    }
+    
+    .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+    }
+}
