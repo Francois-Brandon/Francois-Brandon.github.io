@@ -48,10 +48,17 @@
 <body id="home">
  
     <div class="wrapper">
-        <header>
-            <a class="to_nav" href="#primary_nav">Menu</a>
-            <h1 class="logo"><a href="home.html">What's For Lunch?</a></h1>            
+        <header>   
+            <a class="to_nav" href="javascript:void(0);" onclick="toggleDrop()"><i class="fas fa-bars"></i></a>
+            <h1 class="logo"><a href="home.html">What's For Lunch?</a></h1>     
         </header>
+        
+        <div class="drop responsive" id="dropmenu" style="display: none">
+            <span class="welcome" id="welcome"></span>
+            <a href="search.html">Find Restaurants</a>  
+            <a href="schedule.html">Schedule</a>
+            <a id="login-status"></a>
+        </div>
         
         <div class="container">
             
@@ -76,10 +83,9 @@
         <nav id="primary_nav">       
             <ul>  
                 <li><a href="home.html">Home</a></li>
-                <li><a href="search.html">Find Restaurants</a></li>   
-                <li><a href="schedule.html">Schedule</a></li>    
-                <li><a href="">Contact</a></li>    
-                <li class="top"><a href="#home">Top</a></li>    
+                <li><a href="search.html">Find Restaurants</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li class="top"><a href="#home">Top</a></li>
             </ul>
         </nav><!--end primary_nav-->
     

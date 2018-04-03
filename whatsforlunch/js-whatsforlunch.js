@@ -6,9 +6,23 @@ window.onload = function() {
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
+    var user = firebase.auth().currentUser;
+    var name = user.displayName;
+    var welcome = document.getElementById("welcome");
+    welcome.innerHTML = "Hello, " + name;
+      
+    var status = document.getElementById("login-status");    
+    status.setAttribute("onClick", "logOut()");
+    status.innerHTML = "Sign Out"
+ 
     
   } else {
-    
+    var welcome = document.getElementById("welcome");
+    welcome.innerHTML = "No user logged in";
+      
+    var status = document.getElementById("login-status");
+    status.setAttribute("href", "login.html");
+    status.innerHTML = "Sign In"
   }
 });
 
@@ -26,6 +40,16 @@ function saveLocation(position) {
     long = crd.longitude;
     
     console.log(lat + ", " + long);
+}
+    
+function logOut() {
+    firebase.auth().signOut().then(function() {
+        console.log("signed out");
+    }).catch(function(error) {
+        console.log("error signing out");
+    });
+    
+    toggleDrop();
 }
 
 function handleError() {
@@ -309,6 +333,15 @@ function sliderInput() {
     var slider = document.getElementById("myRange");
     var output = document.getElementById("range");
     output.innerHTML = slider.value + " miles";
+}
+
+function toggleDrop() {
+    var x = document.getElementById("dropmenu");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
 }
 
 var categories = ["abruzzese",

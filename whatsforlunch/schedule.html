@@ -50,10 +50,17 @@
 <body id="home">
  
     <div class="wrapper">
-        <header>
-            <a class="to_nav" href="#primary_nav">Menu</a>
-            <h1 class="logo"><a href="home.html">What's For Lunch?</a></h1>            
+        <header>   
+            <a class="to_nav" href="javascript:void(0);" onclick="toggleDrop()"><i class="fas fa-bars"></i></a>
+            <h1 class="logo"><a href="home.html">What's For Lunch?</a></h1>     
         </header>
+        
+        <div class="drop responsive" id="dropmenu" style="display: none">
+            <span class="welcome" id="welcome"></span>
+            <a href="search.html">Find Restaurants</a>  
+            <a href="schedule.html">Schedule</a>
+            <a id="login-status"></a>
+        </div>
          
          
         <footer>        
