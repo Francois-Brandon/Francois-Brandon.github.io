@@ -41,6 +41,10 @@
       ui.start('#firebaseui-auth-container', uiConfig);
     </script>
       
+      <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+      
+      <script type="text/javascript" src="js-whatsforlunch.js"></script>
+      
     <meta name="description" content="Generate a lunch schedule">
     <meta name="author" content="Brandon Francois">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -58,10 +62,19 @@
   <body id="home">
  
     <div class="wrapper">
-        <header>
-            <a class="to_nav" href="#primary_nav">Menu</a>
-            <h1 class="logo"><a href="">What's For Lunch?</a></h1>            
+        <header>   
+            <a class="to_nav" href="javascript:void(0);" onclick="toggleDrop()"><i class="fas fa-bars"></i></a>
+            <h1 class="logo"><a href="home.html">What's For Lunch?</a></h1>     
         </header>
+        
+        <div class="drop responsive" id="dropmenu">
+            <a class="welcome" id="welcome" href="javascript:void(0);"></a>
+            <a href="search.html">Find Restaurants</a>  
+            <a href="schedule.html">Schedule</a>
+            <a id="login-status"></a>
+        </div>
+        
+        
         <div id="firebaseui-auth-container"></div>
         
         <footer>        
@@ -70,9 +83,9 @@
         
         <nav id="primary_nav">       
             <ul>   
-                <li><a href="">Find Restaurants</a></li>   
-                <li><a href="">Schedule</a></li>    
-                <li><a href="">Contact</a></li>    
+                <li><a href="home.html">Home</a></li>  
+                <li><a href="search.html">Find Restaurants</a></li>   
+                <li><a href="schedule.html">Schedule</a></li>    
                 <li class="top"><a href="#home">Top</a></li>    
             </ul>
         </nav><!--end primary_nav-->

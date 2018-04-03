@@ -6,18 +6,20 @@
     
 <!--START: Firebase Integration-->
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-    
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-firestore.js"></script>
     <script>    
-    // Initialize Firebase
-    var config = {
-    apiKey: "AIzaSyAL0FCr2iZSQ0lIuYIBG4caQAZN-0eCSms",
-    authDomain: "what-s-for-lunch-8ab58.firebaseapp.com",
-    databaseURL: "https://what-s-for-lunch-8ab58.firebaseio.com",
-    projectId: "what-s-for-lunch-8ab58",
-    storageBucket: "what-s-for-lunch-8ab58.appspot.com",
-    messagingSenderId: "949785657631"
-    };
-    firebase.initializeApp(config);
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAL0FCr2iZSQ0lIuYIBG4caQAZN-0eCSms",
+            authDomain: "what-s-for-lunch-8ab58.firebaseapp.com",
+            databaseURL: "https://what-s-for-lunch-8ab58.firebaseio.com",
+            projectId: "what-s-for-lunch-8ab58",
+            storageBucket: "what-s-for-lunch-8ab58.appspot.com",
+            messagingSenderId: "949785657631"
+        };
+        firebase.initializeApp(config);
+        
+        var db = firebase.firestore();
     </script>
     
     <script src="https://cdn.firebase.com/libs/firebaseui/2.7.0/firebaseui.js"></script>
@@ -25,7 +27,7 @@
     
 <!--END: Firebase Integration-->
     
-    <script type="text/javascript" src="js-whatsforlunch.js"></script>
+    <script type="text/javascript" src="js-whatsforlunch-schedule.js"></script>
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     
@@ -43,9 +45,7 @@
  
     <!-- Favicons-->
     <link rel="shortcut icon" href="img/favicon.ico">
-    
-    <script>console.log(schedule);</script>
- 
+     
 </head>
 <body id="home">
  
@@ -55,14 +55,54 @@
             <h1 class="logo"><a href="home.html">What's For Lunch?</a></h1>     
         </header>
         
-        <div class="drop responsive" id="dropmenu" style="display: none">
-            <span class="welcome" id="welcome"></span>
+        <div class="drop responsive" id="dropmenu">
+            <a class="welcome" id="welcome" href="javascript:void(0);"></a>
             <a href="search.html">Find Restaurants</a>  
             <a href="schedule.html">Schedule</a>
             <a id="login-status"></a>
         </div>
          
-         
+         <div class="container">
+            <div class="row">
+                <div class="col-100 buttonWrapper">
+                    <button id="getSchedule" onclick="getSchedule()">Refresh Schedule</button>
+                </div>
+             </div>
+        </div>
+        
+        <div class="container" id="schedule-wrapper">
+        <div class="row">
+            <div id="schedule-page-container" class="hide-schedule">
+                <div id="scheduletable" class="col-100">
+                    <table class="sched-table-style">
+                        <tr>
+                            <td class="td-day">Monday</td>
+                            <td id="rest-mon" class="td-rest"></td>
+                        </tr>
+                        <tr>
+                            <td class="td-day">Tuesday</td>
+                            <td id="rest-tues" class="td-rest"></td>
+                        </tr>
+                        <tr>
+                            <td class="td-day">Wednesday</td>
+                            <td id="rest-wed" class="td-rest"></td>
+                        </tr>
+                        <tr>
+                            <td class="td-day">Thursday</td>
+                            <td id="rest-thurs" class="td-rest"></td>
+                        </tr>
+                        <tr>
+                            <td class="td-day">Friday</td>
+                            <td id="rest-fri" class="td-rest"></td>
+                        </tr>
+                    </table>
+                
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        
         <footer>        
             <p>Copyright &copy;2018 Brandon Francois</p>        
         </footer>
@@ -71,15 +111,14 @@
             <ul>   
                 <li><a href="home.html">Home</a></li>
                 <li><a href="search.html">Find Restaurants</a></li>   
-                <li><a href="schedule.html">Schedule</a></li>    
-                <li><a href="">Contact</a></li>    
+                <li><a href="schedule.html">Schedule</a></li>        
                 <li class="top"><a href="#home">Top</a></li>    
             </ul>
         </nav><!--end primary_nav-->
     
     </div><!--end wrapper-->
     
-    
+
      
 </body>
 </html>

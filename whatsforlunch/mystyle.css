@@ -156,7 +156,8 @@ a.to_nav:focus {
     display: block;
     padding: 14px 16px;
     color: #f2f2f2;
-    font-size: .8em;
+    font-size: .8em !important;
+    background-color: #585c74;
 }
 
 /*navigation*/ 
@@ -197,6 +198,7 @@ footer {
     font-style: italic;
     text-align: center;
     font-size: 14px;
+    padding-top: 1.5em;
 }
 
 /* Style inputs, select elements and textareas*/ 
@@ -233,7 +235,7 @@ input[type=button] {
     font-size: .8em;
 }
 
-#search, #create-schedule, #save-schedule {
+#search, #create-schedule, #save-schedule, #getSchedule {
     background-color: #2851a4;
     color: white;
     padding: 12px 20px;
@@ -302,7 +304,7 @@ input[type=button] {
 .buttonWrapper {
     display: flex;
     justify-content: center;
-    padding: 5px;
+    padding: 15px;
 }
 
 /* Clear floats after the columns */
@@ -472,8 +474,8 @@ input[type=button] {
 }
 
 .sched-table-style td {
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
     border-collapse: collapse;
     padding: 5px;
     text-align: center;
@@ -484,10 +486,21 @@ input[type=button] {
     font-family: 'Permanent Marker', cursive;
     transform: rotate(-20deg);
     font-size: 1.2em;
+    height: 100px;
 }
 
 .td-rest {
-    font-family: 'Shadows Into Light Two', cursive;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.hide-schedule {
+    height: 0px;
+    opacity: 0;
+}
+
+.show-schedule {
+    height: 500px;
+    opacity: 1;
 }
 
 
@@ -506,30 +519,44 @@ input[type=button] {
 
 .drop {
     background: #6e7491;
-    transition: .3s;
+    height: 0px;
+    opacity: 0;
+    -webkit-transition: all .3s ease .15s;
+    transition: all .3s ease .15s;
+}
+
+.droppeddown {
+    height: 200px;
+    opacity: 1;
+    -webkit-transition: all .3s ease .15s;
+    transition: all .3s ease .15s;
+}
+
+.droppeddown a {
+    display: block !important; 
 }
 
 .drop a {
     float: left;
-    display: block;
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 1em;
 }
 
 .drop.responsive {position: relative;}
-  .drop.responsive a.icon {
+.drop.responsive a.icon {
     position: absolute;
     right: 0;
     top: 0;
-  }
-  .drop.responsive a {
+}
+
+.drop.responsive a {
     float: none;
-    display: block;
+    display: none;
     text-align: left;
-  }
+}
 
 
 @media only screen and (min-width: 768px) {

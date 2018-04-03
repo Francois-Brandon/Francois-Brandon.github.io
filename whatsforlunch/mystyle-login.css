@@ -130,10 +130,10 @@ h1.logo a {
 a.to_nav {
     float: left;
     color: #fff;
-    background: #2851a4;
+    background: #193366;
     text-decoration: none;
     padding: 0 10px;
-    font-size: 12px;
+    font-size: 1.25em;
     font-weight: bold;
     line-height: 22px;
     height: 22px;
@@ -146,8 +146,7 @@ a.to_nav {
  
 a.to_nav:hover,
 a.to_nav:focus {
-    color: #1c1c1c;
-    background: #ccc;
+    
 }
 
 /*navigation*/ 
@@ -479,9 +478,55 @@ input[type=button] {
     top: .7em;
 }
 
+.drop {
+    background: #6e7491;
+    height: 0px;
+    opacity: 0;
+    -webkit-transition: all .3s ease .15s;
+    transition: all .3s ease .15s;
+}
+
+.droppeddown {
+    height: 200px;
+    opacity: 1;
+    -webkit-transition: all .3s ease .15s;
+    transition: all .3s ease .15s;
+}
+
+.drop a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.drop.responsive {position: relative;}
+  .drop.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .drop.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+.welcome {
+    display: block;
+    padding: 14px 16px;
+    color: #f2f2f2;
+    font-size: .8em;
+    background-color: #585c74;
+}
+
 @media only screen and (min-width: 768px) {
     a.to_nav {
-        display: none;
+        float: right;
     }
     
     .logo {
@@ -499,6 +544,7 @@ input[type=button] {
         top: 5px;
         right: 10px;
         background: none;
+        display: none;
     }
      
     #primary_nav li {
@@ -518,8 +564,12 @@ input[type=button] {
     display: none;
     }
     
-    .col-25, .col-75, input[type=submit] {
+    .col-25, .col-75 {
     width: 100%;
     margin-top: 0;
+    }
+    
+    #drop-menu {
+        float: right;
     }
 }
