@@ -1,0 +1,197 @@
+<html lang="en">
+<head>
+ 
+    <meta charset="utf-8">
+    <title>What's For Lunch?</title>
+    
+<!--START: Firebase Integration-->
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    
+    <script>    
+    // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyAL0FCr2iZSQ0lIuYIBG4caQAZN-0eCSms",
+    authDomain: "what-s-for-lunch-8ab58.firebaseapp.com",
+    databaseURL: "https://what-s-for-lunch-8ab58.firebaseio.com",
+    projectId: "what-s-for-lunch-8ab58",
+    storageBucket: "what-s-for-lunch-8ab58.appspot.com",
+    messagingSenderId: "949785657631"
+    };
+    firebase.initializeApp(config);
+    </script>
+    
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.7.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.7.0/firebaseui.css" />
+    
+<!--END: Firebase Integration-->
+    
+    <script type="text/javascript" src="js-whatsforlunch.js"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxecYkMzbpjToNRR98fEpaJ4qY-lSKXns&libraries=places"></script>
+    
+    <meta name="description" content="Generate a lunch schedule">
+    <meta name="author" content="Brandon Francois">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ 
+    <!--css-->
+    <link rel="stylesheet" href="mystyle.css">
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+ 
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="img/favicon.ico">
+ 
+</head>
+<body id="home">
+ 
+    <div class="wrapper">
+        <header>
+            <a class="to_nav" href="#primary_nav"><i class="fas fa-bars"></i></a>
+            <h1 class="logo"><a href="home.html">What's For Lunch?</a></h1>            
+        </header>
+         <header id="find-header-tag" class="subhead" onclick="toggleFind()">
+            <h1 id="find-header">Find Restaurants <i class="fas fa-angle-down"></i></h1>
+        </header>
+        <div class="container">
+            <div id="search-container">
+<!--            <form action="" autocomplete="off">-->
+                <div class="row">
+                    <div class="col-100">
+                        <input type="checkbox" id="current" name="location" onclick="toggleZip()"> Use Current Location
+                    </div>
+                    <div id="location-error"></div>
+                </div>
+                
+                <!-- zip code input-->
+                <div class="row" id="optional" style="display: inherit">
+                    <div class="col-25">
+                        <label for="zip">Zip Code</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="zip" name="zip" placeholder="Input Zip Code">
+                    </div>
+                </div>
+                
+                
+                <!-- radius input-->
+                <div class="row">
+                    <div class="col-25">
+                        <label for="distance">Distance</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="range" min="1" max="30" value="5" name="distance" class="slider" id="myRange" oninput="sliderInput()">
+                        <span id="range"></span>
+                    </div>
+                </div>
+                
+                <!-- price input-->
+                
+                <div class="row">
+                    <div class="col-25">
+                        <label for="option">Max Price</label>
+                    </div>
+                    <div class="col-75">
+                        <ul class="segmented-control">
+                            <li class="segmented-control__item">
+                                <input class="segmented-control__input" type="radio" value="0" name="option" id="option-1">
+                                <label class="segmented-control__label" for="option-1">$</label>
+                            </li>
+                            <li class="segmented-control__item">
+                                <input class="segmented-control__input" type="radio" value="1" name="option" id="option-2" >
+                                <label class="segmented-control__label" for="option-2">$$</label>
+                            </li>
+                            <li class="segmented-control__item">
+                                <input class="segmented-control__input" type="radio" value="2" name="option" id="option-3" >
+                                <label class="segmented-control__label" for="option-3">$$$</label>
+                            </li>
+                            <li class="segmented-control__item">
+                                <input class="segmented-control__input" type="radio" value="3" name="option" id="option-4" >
+                                <label class="segmented-control__label" for="option-4">$$$$</label>
+                            </li>
+                            <li class="segmented-control__item">
+                                <input class="segmented-control__input" type="radio" value="4" name="option" id="option-5" checked="checked">
+                                <label class="segmented-control__label" for="option-5">$$$$$</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- category input-->                
+                <div class="row">
+                    <div class="col-25">
+                        <label for="category">Criteria</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="searchterm" placeholder="Search Term">
+                        <span class="plus" onclick="addSearchTerm()"><i class="fas fa-plus-circle"></i></span>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-25"></div>         
+                    <div class="terms" id="terms" style="display: none;"></div>
+                </div>
+                
+                
+                <div class="row">
+                    <div class="col-100 buttonwrapper">                     
+                        <button id="search" onclick="find()">Search</button>
+                    </div>
+                </div>
+                
+<!--            </form>-->
+            </div>
+        </div>
+        
+        
+        <header class="subhead" id="result-subhead" onclick="toggleResults()">
+            <h1 id="results-header">Results <i class="fas fa-angle-up"></i></h1>
+        </header>
+        <div class="container" id="results-wrapper" style="display: none;">
+        <div class="row">
+            <div id="instruction-container" class="col-100"></div>
+            <div id="schedule-button-container" class="buttonwrapper"></div>
+            <div id="results-container">
+                <div id="resultstable" class="col-100"></div>
+            </div>
+        </div>
+        </div>
+         
+        <header class="subhead" id="schedule-subhead" onclick="toggleSchedule()">
+            <h1 id="schedule-header">Lunch Schedule <i class="fas fa-angle-up"></i></h1>
+        </header>
+        
+        <div class="container" id="schedule-wrapper" style="display: none;">
+        <div class="row">
+            <div id="save-instruction-container" class="col-100"></div>
+            <div id="save-schedule-button-container" class="buttonwrapper"></div>
+            <div id="schedule-container">
+                <div id="scheduletable" class="col-100"></div>
+            </div>
+        </div>
+        </div>
+        
+        
+        <footer>        
+            <p>Copyright &copy;2018 Brandon Francois</p>        
+        </footer>
+        
+        <nav id="primary_nav">       
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="search.html">Find Restaurants</a></li>   
+                <li><a href="schedule.html">Schedule</a></li>    
+                <li><a href="">Contact</a></li>    
+                <li class="top"><a href="#home">Top</a></li>    
+            </ul>
+        </nav><!--end primary_nav-->
+    
+    </div><!--end wrapper-->
+    
+    
+     
+</body>
+</html>

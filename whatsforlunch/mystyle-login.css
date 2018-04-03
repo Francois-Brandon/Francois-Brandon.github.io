@@ -89,7 +89,7 @@ h2 {
  
 header {
     background: #193366;
-    padding: 15px 18px;
+    padding: 15px 20px;
 }
  
 /*shorter clearfix http://nicolasgallagher.com/micro-clearfix-hack/*/
@@ -101,7 +101,6 @@ header:before, header:after {
 header:after {
     clear:both;
 }
-
          
 /* For IE 6/7 (trigger hasLayout) */
 header {
@@ -131,10 +130,10 @@ h1.logo a {
 a.to_nav {
     float: left;
     color: #fff;
-    background: #193366;
+    background: #2851a4;
     text-decoration: none;
     padding: 0 10px;
-    font-size: 1.25em;
+    font-size: 12px;
     font-weight: bold;
     line-height: 22px;
     height: 22px;
@@ -148,7 +147,7 @@ a.to_nav {
 a.to_nav:hover,
 a.to_nav:focus {
     color: #1c1c1c;
-    color: #1c1c1c;
+    background: #ccc;
 }
 
 /*navigation*/ 
@@ -196,9 +195,9 @@ input[type=text] {
     border: 1px solid transparent;
     border-bottom: 1px solid #193366;
     background-color: #fff;
-    padding: 10px;
+    
     font-size: .8em;
-    width: 200px;
+    
 }
 
 /* Style the label to display next to the inputs */
@@ -224,17 +223,17 @@ input[type=button] {
     font-size: .8em;
 }
 
-#search, #create-schedule, #save-schedule {
-    background-color: #2851a4;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float:none;
+#search {
+  background-color: #2851a4;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float:none;
     font: inherit;
     -webkit-box-shadow: 0px 1px 4px #c6c6c6, 0px 2px 17px #d1d1d1;
-    box-shadow: 0px 1px 4px #c6c6c6, 0px 2px 17px #d1d1d1;
+          box-shadow: 0px 1px 4px #c6c6c6, 0px 2px 17px #d1d1d1;
 }
 
 #results tr {
@@ -253,11 +252,6 @@ input[type=button] {
 #search-container, #results-container {
     padding-top: 20px;
     padding-bottom: 20px;
-
-}
-
-#results-wrapper {
-    padding-bottom: 20px;
 }
 
 /* Style the container */
@@ -266,7 +260,6 @@ input[type=button] {
     background-color: #fff;
     padding-left: 20px;
     padding-right: 20px;
-    transition: 0.2s ease-out;
 }
 
 /* Floating column for labels: 25% width */
@@ -283,7 +276,7 @@ input[type=button] {
   margin-top: 1em;
 }
 
-/* Floating column for full width: 100% width */
+/* Floating column for inputs: 75% width */
 .col-100 {
   float: left;
   width: 100%;
@@ -319,15 +312,15 @@ input[type=button] {
 .slider {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
-    width: 70%; 
-    height: 20px; 
-    background: #f2f2f2;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
+    width: 70%; /* Full-width */
+    height: 20px; /* Specified height */
+    background: #f2f2f2; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
     transition: opacity .2s;
     -webkit-box-shadow: 0px 1px 4px #c6c6c6, 0px 2px 17px #d1d1d1;
-    box-shadow: 0px 1px 4px #c6c6c6, 0px 2px 17px #d1d1d1;
+          box-shadow: 0px 1px 4px #c6c6c6, 0px 2px 17px #d1d1d1;
     
 }
 
@@ -457,25 +450,8 @@ input[type=button] {
     color: #b6b9c8;
 }
 
-.restData {
-    background-color: #fff;
-    transition: 1s;
-}
-
-.sched-table-style td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 5px;
-    text-align: center;
-}
-
-.td-day {
-   vertical-align: middle;
-}
-
-
 .mdl-textfield--floating-label.has-placeholder .mdl-textfield__label, .mdl-textfield--floating-label.is-dirty .mdl-textfield__label, .mdl-textfield--floating-label.is-focused .mdl-textfield__label {
-    top: -2px;
+    top: -.25em;
 }
 
 .firebaseui-textfield.mdl-textfield .firebaseui-input {
@@ -485,6 +461,22 @@ input[type=button] {
 
 .firebaseui-input {
     font-size: .8em;
+}
+
+.firebaseui-card-header {
+    background: #b6b9c8;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1em;
+    letter-spacing: 0.1em; 
+}
+
+.firebaseui-title {
+    color: #fff;
+}
+
+.mdl-textfield__label {
+    top: .7em;
 }
 
 @media only screen and (min-width: 768px) {

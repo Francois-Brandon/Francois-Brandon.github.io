@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+ 
+    <meta charset="utf-8">
+    <title>What's For Lunch?</title>
+    
+<!--START: Firebase Integration-->
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    
+    <script>    
+    // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyAL0FCr2iZSQ0lIuYIBG4caQAZN-0eCSms",
+    authDomain: "what-s-for-lunch-8ab58.firebaseapp.com",
+    databaseURL: "https://what-s-for-lunch-8ab58.firebaseio.com",
+    projectId: "what-s-for-lunch-8ab58",
+    storageBucket: "what-s-for-lunch-8ab58.appspot.com",
+    messagingSenderId: "949785657631"
+    };
+    firebase.initializeApp(config);
+    </script>
+    
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.7.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.7.0/firebaseui.css" />
+    
+<!--END: Firebase Integration-->
+    
+    <script type="text/javascript" src="js-whatsforlunch.js"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxecYkMzbpjToNRR98fEpaJ4qY-lSKXns&libraries=places"></script>
+    
+    <meta name="description" content="Generate a lunch schedule">
+    <meta name="author" content="Brandon Francois">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ 
+    <!--css-->
+    <link rel="stylesheet" href="mystyle.css">
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+ 
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="img/favicon.ico">
+    
+    <script>console.log(schedule);</script>
+ 
+</head>
+<body id="home">
+ 
+    <div class="wrapper">
+        <header>
+            <a class="to_nav" href="#primary_nav">Menu</a>
+            <h1 class="logo"><a href="home.html">What's For Lunch?</a></h1>            
+        </header>
+         
+         
+        <footer>        
+            <p>Copyright &copy;2018 Brandon Francois</p>        
+        </footer>
+        
+        <nav id="primary_nav">       
+            <ul>   
+                <li><a href="home.html">Home</a></li>
+                <li><a href="search.html">Find Restaurants</a></li>   
+                <li><a href="schedule.html">Schedule</a></li>    
+                <li><a href="">Contact</a></li>    
+                <li class="top"><a href="#home">Top</a></li>    
+            </ul>
+        </nav><!--end primary_nav-->
+    
+    </div><!--end wrapper-->
+    
+    
+     
+</body>
+</html>

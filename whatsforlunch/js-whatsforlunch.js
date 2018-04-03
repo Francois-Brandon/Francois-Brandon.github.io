@@ -1,16 +1,24 @@
 window.onload = function() {
     var slider = document.getElementById("myRange");
     var output = document.getElementById("range");
-    output.innerHTML = slider.value + " miles"; // Display the default slider value
-    autocomplete(document.getElementById("myInput1"), categories);
-    autocomplete(document.getElementById("myInput2"), categories);
-    autocomplete(document.getElementById("myInput3"), categories);
-    
+    output.innerHTML = slider.value + " miles"; // Display the default slider value    
 };
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    
+  } else {
+    
+  }
+});
 
 var document = this.document;
 var lat;
 var long;
+var criteria = [];
+var restPool = [];
+var schedule = [];
+var weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
 function saveLocation(position) {
     var crd = position.coords;
@@ -24,29 +32,120 @@ function handleError() {
     console.log("Error getting location");
 }
 
+function addSearchTerm() {
+    var termtext = document.getElementById("searchterm");
+    document.getElementById("terms").style.display = "inherit";
+    
+    var term = document.createElement("A");
+    //term.setAttribute("href", "#");
+    term.setAttribute("onclick", "removeSearchTerm(this)");
+    term.setAttribute("id", termtext.value);
+    document.getElementById("terms").appendChild(term);
+    
+    var termspan = document.createElement("SPAN");
+    termspan.innerHTML = "<i class=\"fas fa-times\"></i> " + termtext.value;
+    
+    term.appendChild(termspan);
+    criteria.push(termtext.value);
+    termtext.value = "";
+}
+
+function removeSearchTerm(ele) {
+    console.log(ele);
+    var ch = ele.getAttribute("id");
+    document.getElementById(ch).outerHTML = '';
+    
+    var index = criteria.indexOf(ch);
+    if (index > -1) {
+        criteria.splice(index, 1);
+    }  
+}
+
+function addToRestaurantPool(ele) {
+    //console.log(ele);
+    var rest = ele.getAttribute("id");
+    var restinfo = document.getElementById(rest);
+    //console.log(restinfo);
+    
+    var index = restPool.indexOf(restinfo.innerHTML);
+    if (index > -1) {
+        restPool.splice(index, 1);
+        restinfo.style.backgroundColor = "#fff";
+        restinfo.style.color = "#000000";
+    } else {
+        restPool.push(restinfo.innerHTML);
+        restinfo.style.backgroundColor = "#2851a4";
+        restinfo.style.color = "#fff";
+    }
+    //console.log(restPool);
+}
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
+}
+
+function createSchedule() {
+    
+    for (var i = 0; i < 5; i++) {
+        var rnum = getRndInteger(0, restPool.length);
+        schedule.push(restPool[rnum]);
+        restPool.splice(rnum, 1);
+    }
+    
+    //document.getElementById("schedule-subhead").style.display = "block";
+    
+    var tableDiv = document.getElementById("scheduletable");
+    tableDiv.innerHTML = '';
+    
+    var instruct = document.createElement("P");
+    instruct.setAttribute("id", "instructions");
+    instruct.innerHTML = ("Login to save your schedule");
+    document.getElementById("save-instruction-container").appendChild(instruct);
+    
+    var schedButton = document.createElement("BUTTON");
+    schedButton.setAttribute("id", "save-schedule");
+    schedButton.setAttribute("onclick", "saveSchedule()");
+    schedButton.innerHTML = "Save Schedule";
+    document.getElementById("save-schedule-button-container").appendChild(schedButton);
+    
+    
+    var tb = document.createElement("TABLE");
+    tb.setAttribute("id", "schedule");
+    tb.setAttribute("class", "sched-table-style");
+    document.getElementById("scheduletable").appendChild(tb);
+    
+    for (var j = 0; j < 5; j++) {
+        var day = weekdays[j];
+        
+        var tr = document.createElement("TR");
+        tr.setAttribute("id", "srow" + j);
+        document.getElementById("schedule").appendChild(tr);
+        
+        var a = document.createElement("TD");
+        a.setAttribute("id", day);
+        a.setAttribute("class", "td-day");
+        a.innerHTML = day;
+        document.getElementById("srow" + j).appendChild(a);
+        
+        var b = document.createElement("TD");
+        b.setAttribute("id", day + j);
+        b.innerHTML = schedule[j];
+        document.getElementById("srow" + j).appendChild(b);
+    }
+
+    
+    toggleResults();
+    toggleSchedule();
+}
+
 function find() {
     document.getElementById("location-error").innerHTML = '';
     
     var zip = document.getElementById("zip");
-    //var rating = document.querySelector('input[name=star][checked]')
     var range = document.getElementById("myRange");
-    //var price = document.querySelectorAll('input[name=price][checked]')
-    var cat1 = document.getElementById("myInput1");
-    var cat2 = document.getElementById("myInput2");
-    var cat3 = document.getElementById("myInput3");
+    var price = document.querySelectorAll('input[name=option][checked]')
     var coords = '';
-    
-    var criteria = [];
-    if (cat1.value != null && cat1.value != "") {
-        criteria.push(cat1.value);
-    }
-    if (cat2.value != null && cat2.value != "") {
-        criteria.push(cat2.value);
-    }
-    if (cat3.value != null && cat3.value != "") {
-        criteria.push(cat3.value);
-    }
-    
+    console.log(price[0].value);
     if (document.getElementById("current").checked) {
         if (lat != null && long != null) {
             coords = "&location=" + lat + "," + long;
@@ -57,30 +156,34 @@ function find() {
             return;
             console.log("shouldn't see this")
         }
-    } else {
+    } else if (zip.value != null && zip.value != '') {
         criteria.push("near+" + zip.value);
+    } else {
+        document.getElementById("location-error").innerHTML = "Enter zip code or select 'Use Current Location'";
+        return;
     }
     
     var query = "&query=";
-    while (criteria.length) {
-        query += "+" + criteria.pop()
+    /*while (criteria.length) {
+        query += "+" + criteria.pop();
+    }*/
+    
+    for (var i = 0; i < criteria.length; i++) {
+        query += "+" + criteria[i];
     }
+    criteria.pop() //remove zip code
         
     
     var radius = "&radius=" + (range.value * 1609.34);
     
- console.log(query + coords + radius);
+    console.log(query + coords + radius);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState != 4) {
-            //document.getElementById("search").innerHTML = "<i class=\"fa fa-spinner fa-spin\"></i> Loading";
+            document.getElementById("search").innerHTML = "<i class=\"fas fa-spinner fa-spin\"></i> Searching";
         }
         
         if (this.readyState == 4 && this.status == 200) {
-            
-            //console.log(this.response);
-            //document.getElementById("response1").innerHTML = this.responseText;
-            //document.getElementById("status1").innerHTML = this.status;
             var myObj = JSON.parse(this.responseText);
             parseResults(myObj);
         }
@@ -92,19 +195,26 @@ function find() {
 function parseResults(myObj) {
     console.log(myObj);
     
-    document.getElementById("result-subhead").style.display = "block";
+    //document.getElementById("result-subhead").style.display = "block";
     
     var tableDiv = document.getElementById("resultstable");
     tableDiv.innerHTML = '';
     
+    var instruct = document.createElement("P");
+    instruct.setAttribute("id", "instructions");
+    instruct.innerHTML = ("Select at least 5 restaurants to add to your restaurant pool.");
+    document.getElementById("instruction-container").appendChild(instruct);
+    
+    var schedButton = document.createElement("BUTTON");
+    schedButton.setAttribute("id", "create-schedule");
+    schedButton.setAttribute("onclick", "createSchedule()");
+    schedButton.innerHTML = "Create Schedule";
+    document.getElementById("schedule-button-container").appendChild(schedButton);
+    
+    
     var tb = document.createElement("TABLE");
     tb.setAttribute("id", "results");
     document.getElementById("resultstable").appendChild(tb);
-    
-    /*var th = document.createElement("TH");
-    th.setAttribute("id", "resultheading")
-    th.innerHTML = "Results";
-    document.getElementById("results").appendChild(th);*/
     
     for (var i = 0; i < myObj.results.length; i++) {
         var restaurant = myObj.results[i];
@@ -114,13 +224,16 @@ function parseResults(myObj) {
         document.getElementById("results").appendChild(tr);
         
         var a = document.createElement("TD");
-        a.setAttribute("id", "result" + i);
+        a.setAttribute("id", restaurant.place_id);
+        a.setAttribute("onclick", "addToRestaurantPool(this)")
+        a.setAttribute("class", "restData");
         a.innerHTML = restaurant.name + "<br>" + restaurant.formatted_address + "<br>Rating: " + restaurant.rating;
         document.getElementById("row" + i).appendChild(a);
     }
-    //document.getElementById("search").innerHTML = "Search";
+    document.getElementById("search").innerHTML = "Search";
     
     toggleFind();
+    toggleResults();
 }
 
 function toggleFind() {
@@ -129,27 +242,40 @@ function toggleFind() {
     if (div.style.display === "none") {
         div.style.display = "block";
         document.getElementById("find-header").innerHTML = "Find Restaurants <i class=\"fas fa-angle-down\"></i>";
-        document.getElementById("result-subhead").style.borderTop = "none";
+        //document.getElementById("result-subhead").style.borderTop = "none";
     } else {
         div.style.display = "none";
         document.getElementById("find-header").innerHTML = "Find Restaurants <i class=\"fas fa-angle-up\"></i>";
-        document.getElementById("result-subhead").style.borderTop = "1px solid #193366";
+        //document.getElementById("result-subhead").style.borderTop = "1px solid #193366";
     }
 }
 
 function toggleResults() {
-    var div = document.getElementById("results-container");
+    var div = document.getElementById("results-wrapper");
+    //var div2 = document.getElementById("instruction-container");
     
     if (div.style.display === "none") {
         div.style.display = "block";
+        //div2.style.display = "block";
         document.getElementById("results-header").innerHTML = "Results <i class=\"fas fa-angle-down\"></i>";
     } else {
         div.style.display = "none";
+        //div2.style.display = "none";
         document.getElementById("results-header").innerHTML = "Results <i class=\"fas fa-angle-up\"></i>";
     }
 }
 
-
+function toggleSchedule() {
+    var div = document.getElementById("schedule-wrapper");
+    
+    if (div.style.display === "none") {
+        div.style.display = "block";
+        document.getElementById("schedule-header").innerHTML = "Lunch Schedule <i class=\"fas fa-angle-down\"></i>";
+    } else {
+        div.style.display = "none";
+        document.getElementById("schedule-header").innerHTML = "Lunch Schedule <i class=\"fas fa-angle-up\"></i>";
+    }
+}
 
 function toggleZip() {
     var zipInput = document.getElementById("optional");
@@ -169,112 +295,6 @@ function sliderInput() {
     var output = document.getElementById("range");
     output.innerHTML = slider.value + " miles";
 }
-
-/*function addCategory() {
-    var a = document.createElement("INPUT");
-    a.setAttribute("placeholder", "Type");
-    a.setAttribute("type", "text");
-    document.getElementById("auto").appendChild(a);
-}*/
-
-function autocomplete(inp, arr) {
-  /*the autocomplete function takes two arguments,
-  the text field element and an array of possible autocompleted values:*/
-  var currentFocus;
-  /*execute a function when someone writes in the text field:*/
-  inp.addEventListener("input", function(e) {
-      var a, b, i, val = this.value;
-      /*close any already open lists of autocompleted values*/
-      closeAllLists();
-      if (!val) { return false;}
-      currentFocus = -1;
-      /*create a DIV element that will contain the items (values):*/
-      a = document.createElement("DIV");
-      a.setAttribute("id", this.id + "autocomplete-list");
-      a.setAttribute("class", "autocomplete-items");
-      /*append the DIV element as a child of the autocomplete container:*/
-      this.parentNode.appendChild(a);
-      /*for each item in the array...*/
-      for (i = 0; i < arr.length; i++) {
-        /*check if the item starts with the same letters as the text field value:*/
-        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-          /*create a DIV element for each matching element:*/
-          b = document.createElement("DIV");
-          /*make the matching letters bold:*/
-          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-          b.innerHTML += arr[i].substr(val.length);
-          /*insert a input field that will hold the current array item's value:*/
-          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-          /*execute a function when someone clicks on the item value (DIV element):*/
-              b.addEventListener("click", function(e) {
-              /*insert the value for the autocomplete text field:*/
-              inp.value = this.getElementsByTagName("input")[0].value;
-              /*close the list of autocompleted values,
-              (or any other open lists of autocompleted values:*/
-              closeAllLists();
-          });
-          a.appendChild(b);
-        }
-      }
-  });
-  /*execute a function presses a key on the keyboard:*/
-  inp.addEventListener("keydown", function(e) {
-      var x = document.getElementById(this.id + "autocomplete-list");
-      if (x) x = x.getElementsByTagName("div");
-      if (e.keyCode == 40) {
-        /*If the arrow DOWN key is pressed,
-        increase the currentFocus variable:*/
-        currentFocus++;
-        /*and and make the current item more visible:*/
-        addActive(x);
-      } else if (e.keyCode == 38) { //up
-        /*If the arrow UP key is pressed,
-        decrease the currentFocus variable:*/
-        currentFocus--;
-        /*and and make the current item more visible:*/
-        addActive(x);
-      } else if (e.keyCode == 13) {
-        /*If the ENTER key is pressed, prevent the form from being submitted,*/
-        e.preventDefault();
-        if (currentFocus > -1) {
-          /*and simulate a click on the "active" item:*/
-          if (x) x[currentFocus].click();
-        }
-      }
-  });
-  function addActive(x) {
-    /*a function to classify an item as "active":*/
-    if (!x) return false;
-    /*start by removing the "active" class on all items:*/
-    removeActive(x);
-    if (currentFocus >= x.length) currentFocus = 0;
-    if (currentFocus < 0) currentFocus = (x.length - 1);
-    /*add class "autocomplete-active":*/
-    x[currentFocus].classList.add("autocomplete-active");
-  }
-  function removeActive(x) {
-    /*a function to remove the "active" class from all autocomplete items:*/
-    for (var i = 0; i < x.length; i++) {
-      x[i].classList.remove("autocomplete-active");
-    }
-  }
-  function closeAllLists(elmnt) {
-    /*close all autocomplete lists in the document,
-    except the one passed as an argument:*/
-    var x = document.getElementsByClassName("autocomplete-items");
-    for (var i = 0; i < x.length; i++) {
-      if (elmnt != x[i] && elmnt != inp) {
-      x[i].parentNode.removeChild(x[i]);
-    }
-  }
-}
-/*execute a function when someone clicks in the document:*/
-document.addEventListener("click", function (e) {
-    closeAllLists(e.target);
-});
-}
-
-
 
 var categories = ["abruzzese",
         "acaibowls",
