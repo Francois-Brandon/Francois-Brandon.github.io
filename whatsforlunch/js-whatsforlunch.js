@@ -86,6 +86,17 @@ function getRndInteger(min, max) {
 
 function createSchedule() {
     
+    var tableDiv = document.getElementById("scheduletable");
+    tableDiv.innerHTML = '';
+    
+    document.getElementById("create-error").innerHTML = '';
+    
+    if (restPool.length < 5) {
+        var remain = 5 - restPool.length;
+        document.getElementById("create-error").innerHTML = "Select " + remain + " more restaurant(s)";
+        return;
+    }
+    
     for (var i = 0; i < 5; i++) {
         var rnum = getRndInteger(0, restPool.length);
         schedule.push(restPool[rnum]);
@@ -94,8 +105,9 @@ function createSchedule() {
     
     //document.getElementById("schedule-subhead").style.display = "block";
     
-    var tableDiv = document.getElementById("scheduletable");
-    tableDiv.innerHTML = '';
+    
+    
+    
     
     var instruct = document.createElement("P");
     instruct.setAttribute("id", "instructions");
@@ -129,6 +141,7 @@ function createSchedule() {
         
         var b = document.createElement("TD");
         b.setAttribute("id", day + j);
+        b.setAttribute("class", "td-rest");
         b.innerHTML = schedule[j];
         document.getElementById("srow" + j).appendChild(b);
     }
@@ -140,6 +153,8 @@ function createSchedule() {
 
 function find() {
     document.getElementById("location-error").innerHTML = '';
+    document.getElementById("instruction-container").innerHTML = '';
+    document.getElementById("schedule-button-container").innerHTML = '';
     
     var zip = document.getElementById("zip");
     var range = document.getElementById("myRange");

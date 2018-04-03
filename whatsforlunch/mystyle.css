@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Shadows+Into+Light+Two');
+
 /*Reset styles*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -199,6 +201,7 @@ input[type=text] {
     padding: 10px;
     font-size: .8em;
     width: 200px;
+    outline: none;
 }
 
 /* Style the label to display next to the inputs */
@@ -219,7 +222,7 @@ input[type=button] {
     font: inherit;
 }
 
-#location-error {
+#location-error, #create-error {
     color: red;
     font-size: .8em;
 }
@@ -463,14 +466,22 @@ input[type=button] {
 }
 
 .sched-table-style td {
-    border: 1px solid black;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
     border-collapse: collapse;
     padding: 5px;
     text-align: center;
 }
 
 .td-day {
-   vertical-align: middle;
+    vertical-align: middle;
+    font-family: 'Permanent Marker', cursive;
+    transform: rotate(-20deg);
+    font-size: 1.2em;
+}
+
+.td-rest {
+    font-family: 'Shadows Into Light Two', cursive;
 }
 
 
