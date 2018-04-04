@@ -62,12 +62,16 @@ body {
  
 p,
 ul {
-    margin: 0 0 1.5em;
+    margin: 0.5em 0 1.5em;
 }
  
 ul {
     list-style: disc;
     padding: 0 0 0 20px;
+}
+
+ol {
+    list-style: decimal;
 }
   
 h1 {
@@ -166,6 +170,7 @@ a.to_nav:focus {
     list-style: none;
     background: #193366;
     padding: 5px 0;
+    margin: 0;
 }
  
 #primary_nav li a {
@@ -198,8 +203,16 @@ footer {
     font-style: italic;
     text-align: center;
     font-size: 14px;
-    padding-top: 1.5em;
-    color: #fff;
+    padding-top: 2.5em;
+    padding-bottom: 10px;
+    color: #000;
+    
+    background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(255,255,255,0.8421743697478992) 39%, rgba(255,255,255,0) 100%);
+}
+
+footer p {
+    margin: 0;
 }
 
 .sticky-bottom {
@@ -210,6 +223,20 @@ footer {
 
 #home {
     opacity: .8;
+}
+
+#home-instruct {
+    font-size: 1.5em;
+    text-align: center;
+    word-spacing: 5px;
+    margin-bottom: 0;
+    line-height: 1.2em;
+}
+
+.schedule-instruct a {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #000;
 }
 
 /* Style inputs, select elements and textareas*/ 
@@ -241,9 +268,10 @@ input[type=button] {
     font: inherit;
 }
 
-#location-error, #create-error {
+#location-error, #create-error, #retrieve-error {
     color: red;
     font-size: .8em;
+    text-align: center;
 }
 
 #search, #create-schedule, #save-schedule, #getSchedule {
@@ -284,7 +312,6 @@ input[type=button] {
 
 /* Style the container */
 .container {
-    border-radius: 5px;
     background-color: #fff;
     padding-left: 20px;
     padding-right: 20px;
@@ -465,14 +492,32 @@ input[type=button] {
     text-decoration: none;
     -webkit-box-shadow: 0px 1px 4px #c6c6c6, 0px 2px 17px #d1d1d1;
     box-shadow: 0px 1px 4px #c6c6c6, 0px 2px 17px #d1d1d1;
+    animation: slide-up 0.4s ease;
     
 }
+
+
 
 .terms span {
     padding-right: 10px;
     padding-left: 0px;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.animate-term {
+    animation: slide-up 0.4s ease;
+}
+
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(360deg);
+    }
 }
 
 .plus {
@@ -579,6 +624,9 @@ input[type=button] {
 
 .grad-background a {
     font-size: 1em;
+    text-decoration:underline;
+    font-weight: bold;
+    color: #000;
 }
 
 

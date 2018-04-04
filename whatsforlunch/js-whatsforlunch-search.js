@@ -45,6 +45,7 @@ function saveLocation(position) {
 function logOut() {
     firebase.auth().signOut().then(function() {
         console.log("signed out");
+        window.location = 'home.html';
     }).catch(function(error) {
         console.log("error signing out");
     });
@@ -58,12 +59,15 @@ function handleError() {
 
 function addSearchTerm() {
     var termtext = document.getElementById("searchterm");
+    if (termtext.value != '') {
     document.getElementById("terms").style.display = "inherit";
+    
     
     var term = document.createElement("A");
     //term.setAttribute("href", "#");
     term.setAttribute("onclick", "removeSearchTerm(this)");
     term.setAttribute("id", termtext.value);
+    term.setAttribute("class", "animate-term");
     document.getElementById("terms").appendChild(term);
     
     var termspan = document.createElement("SPAN");
@@ -72,6 +76,7 @@ function addSearchTerm() {
     term.appendChild(termspan);
     criteria.push(termtext.value);
     termtext.value = "";
+    }
 }
 
 function removeSearchTerm(ele) {
@@ -122,7 +127,7 @@ function saveSchedule() {
     
     
     db.collection("users").doc(uid).set(lunchschedule).then(function() {
-        console.log("Document successfully written!");
+        window.location = 'schedule.html';
     });
 }
 

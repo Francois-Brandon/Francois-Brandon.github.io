@@ -2,7 +2,7 @@
 <head>
  
     <meta charset="utf-8">
-    <title>What's For Lunch?</title>
+    <title>Restaurant Search - What's For Lunch?</title>
     
 <!--START: Firebase Integration-->
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
@@ -46,9 +46,10 @@
  
     <!-- Favicons-->
     <link rel="shortcut icon" href="img/favicon.ico">
+    
  
 </head>
-<body>
+<body id="search-body">
  
     <div class="wrapper">
         <header>   
@@ -137,7 +138,7 @@
                         <label for="category">Criteria</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="searchterm" placeholder="Search Term">
+                        <input type="text" id="searchterm" placeholder="Type a search term then add">
                         <span class="plus" onclick="addSearchTerm()"><i class="fas fa-plus-circle"></i></span>
                     </div>
                 </div>

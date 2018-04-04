@@ -217,10 +217,12 @@ input[type=button] {
     font: inherit;
 }
 
-#location-error {
+#location-error, #retrieve-error {
     color: red;
     font-size: .8em;
 }
+
+
 
 #search {
   background-color: #2851a4;

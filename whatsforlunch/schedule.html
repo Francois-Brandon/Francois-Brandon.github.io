@@ -2,7 +2,7 @@
 <head>
  
     <meta charset="utf-8">
-    <title>What's For Lunch?</title>
+    <title>Schedule - What's For Lunch?</title>
     
 <!--START: Firebase Integration-->
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
@@ -64,9 +64,15 @@
          
          <div class="container">
             <div class="row">
+                <div class="schedule-instruct">
+                    <p>After you have created and saved a schedule, you can view it here!</p>
+                    <p>Haven't create a schedule yet? <a href="search.html">Get started here!</a></p>
+                </div>
                 <div class="col-100 buttonWrapper">
+                
                     <button id="getSchedule" onclick="getSchedule()">Refresh Schedule</button>
                 </div>
+                <div id="retrieve-error"></div>
              </div>
         </div>
         

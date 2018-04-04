@@ -1,4 +1,3 @@
-
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     var user = firebase.auth().currentUser;
@@ -21,12 +20,14 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 
+
 var document = this.document;
 
     
 function logOut() {
     firebase.auth().signOut().then(function() {
         console.log("signed out");
+        window.location = 'home.html';
     }).catch(function(error) {
         console.log("error signing out");
     });
@@ -37,29 +38,37 @@ function logOut() {
 function getSchedule() {
     
     var user = firebase.auth().currentUser;
-    var uid = user.uid;
-    var docRef = db.collection("users").doc(uid);
-
-    docRef.get().then(function(doc) {
-    if (doc.exists) {
-        console.log("Document data:", doc.data().Monday);
-        document.getElementById("rest-mon").innerHTML = doc.data().Monday;
-        document.getElementById("rest-tues").innerHTML = doc.data().Tuesday;
-        document.getElementById("rest-wed").innerHTML = doc.data().Wednesday;
-        document.getElementById("rest-thurs").innerHTML = doc.data().Thursday;
-        document.getElementById("rest-fri").innerHTML = doc.data().Friday;
+    document.getElementById("retrieve-error").innerHTML = "";
+    
+    if (user) {
+        var uid = user.uid;
+        var docRef = db.collection("users").doc(uid);
         
-        var x = document.getElementById("schedule-page-container");
-        x.classList.add("show-schedule");
+
+        docRef.get().then(function(doc) {
+            if (doc.exists) {
+                //console.log("Document data:", doc.data().Monday);
+                document.getElementById("rest-mon").innerHTML = doc.data().Monday;
+                document.getElementById("rest-tues").innerHTML = doc.data().Tuesday;
+                document.getElementById("rest-wed").innerHTML = doc.data().Wednesday;
+                document.getElementById("rest-thurs").innerHTML = doc.data().Thursday;
+                document.getElementById("rest-fri").innerHTML = doc.data().Friday;
+        
+                var x = document.getElementById("schedule-page-container");
+                x.classList.add("show-schedule");
 
         
+            } else {
+                // doc.data() will be undefined in this case
+                document.getElementById("retrieve-error").innerHTML = "Unable to retrieve schedule";
+            }
+        }).catch(function(error) {
+            console.log("Error getting document:", error);
+        });
     } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
+        document.getElementById("retrieve-error").innerHTML = "Log in to view your saved schedule";
     }
-    }).catch(function(error) {
-    console.log("Error getting document:", error);
-    });
+    
       
 }
 
