@@ -208,7 +208,7 @@ footer {
     color: #000;
     
     background: rgb(255,255,255);
-background: linear-gradient(0deg, rgba(255,255,255,0.8421743697478992) 39%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(0deg, rgba(255,255,255,0.8421743697478992) 39%, rgba(255,255,255,0) 100%);
 }
 
 footer p {
@@ -231,6 +231,7 @@ footer p {
     word-spacing: 5px;
     margin-bottom: 0;
     line-height: 1.2em;
+    color: #000;
 }
 
 .schedule-instruct a {
@@ -355,6 +356,7 @@ input[type=button] {
 .txt-center {
     text-align: center;
 }
+
 .hide {
     display: none;
 }
@@ -496,8 +498,6 @@ input[type=button] {
     
 }
 
-
-
 .terms span {
     padding-right: 10px;
     padding-left: 0px;
@@ -616,10 +616,10 @@ input[type=button] {
 
 .grad-background {
     background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(255,255,255,0.8295693277310925) 37%, rgba(234,234,238,0) 93%);
+    background: linear-gradient(180deg, rgba(255,255,255,0.8421743697478992) 77%, rgba(255,255,255,0) 100%);
     
     font-size: 1.2em;
-    
+    padding-bottom: 3em;
 }
 
 .grad-background a {
