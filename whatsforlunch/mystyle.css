@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Shadows+Into+Light+Two');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Shadows+Into+Light');
 
 /*Reset styles*/
 html, body, div, span, applet, object, iframe,
@@ -199,6 +199,17 @@ footer {
     text-align: center;
     font-size: 14px;
     padding-top: 1.5em;
+    color: #fff;
+}
+
+.sticky-bottom {
+    position: fixed;
+   bottom: 0px;
+    width: 100%;
+}
+
+#home {
+    opacity: .8;
 }
 
 /* Style inputs, select elements and textareas*/ 
@@ -556,6 +567,18 @@ input[type=button] {
     float: none;
     display: none;
     text-align: left;
+}
+
+.grad-background {
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,0.8295693277310925) 37%, rgba(234,234,238,0) 93%);
+    
+    font-size: 1.2em;
+    
+}
+
+.grad-background a {
+    font-size: 1em;
 }
 
 
