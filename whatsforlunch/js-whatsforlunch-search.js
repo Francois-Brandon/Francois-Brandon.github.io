@@ -41,7 +41,11 @@ function saveLocation(position) {
     
     console.log(lat + ", " + long);
 }
-    
+  
+function handleError() {
+    console.log("Error getting location");
+}
+
 function logOut() {
     firebase.auth().signOut().then(function() {
         console.log("signed out");
@@ -53,9 +57,6 @@ function logOut() {
     toggleDrop();
 }
 
-function handleError() {
-    console.log("Error getting location");
-}
 
 function addSearchTerm() {
     var termtext = document.getElementById("searchterm");
@@ -123,7 +124,7 @@ function saveSchedule() {
         Thursday: schedule[3],
         Friday: schedule[4],
     };
-    console.log(lunchschedule);
+    //console.log(lunchschedule);
     
     
     db.collection("users").doc(uid).set(lunchschedule).then(function() {
@@ -156,9 +157,7 @@ function getSchedule() {
     }
     }).catch(function(error) {
     console.log("Error getting document:", error);
-    });
-    
-    
+    });   
 }
 
 function createSchedule() {
