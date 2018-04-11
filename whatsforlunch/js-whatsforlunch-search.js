@@ -270,7 +270,7 @@ function find() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState != 4) {
-            document.getElementById("search").innerHTML = "<i class=\"fas fa-spinner fa-spin\"></i> Searching";
+            document.getElementById("search").innerHTML = "<i class=\"fas fa-spinner spin\"></i> Searching";
         }
         
         if (this.readyState == 4 && this.status == 200) {
@@ -327,43 +327,40 @@ function parseResults(myObj) {
 }
 
 function toggleFind() {
-    var div = document.getElementById("search-container");
-    
-    if (div.style.display === "none") {
-        div.style.display = "block";
-        document.getElementById("find-header").innerHTML = "Find Restaurants <i class=\"fas fa-angle-down\"></i>";
-        //document.getElementById("result-subhead").style.borderTop = "none";
-    } else {
-        div.style.display = "none";
+    var x = document.getElementById("search-container");
+            
+    if (x.classList.contains("expand")) {
+        x.classList.remove("expand");
         document.getElementById("find-header").innerHTML = "Find Restaurants <i class=\"fas fa-angle-up\"></i>";
-        //document.getElementById("result-subhead").style.borderTop = "1px solid #193366";
+    } else {
+        x.classList.add("expand");
+        document.getElementById("find-header").innerHTML = "Find Restaurants <i class=\"fas fa-angle-down\"></i>";
     }
 }
 
 function toggleResults() {
-    var div = document.getElementById("results-wrapper");
+    var x = document.getElementById("results-wrapper");
     //var div2 = document.getElementById("instruction-container");
     
-    if (div.style.display === "none") {
-        div.style.display = "block";
-        //div2.style.display = "block";
-        document.getElementById("results-header").innerHTML = "Results <i class=\"fas fa-angle-down\"></i>";
-    } else {
-        div.style.display = "none";
-        //div2.style.display = "none";
+    
+    if (x.classList.contains("expand-results")) {
+        x.classList.remove("expand-results");
         document.getElementById("results-header").innerHTML = "Results <i class=\"fas fa-angle-up\"></i>";
+    } else {
+        x.classList.add("expand-results");
+        document.getElementById("results-header").innerHTML = "Results <i class=\"fas fa-angle-down\"></i>";
     }
 }
 
 function toggleSchedule() {
-    var div = document.getElementById("schedule-wrapper");
+    var x = document.getElementById("schedule-wrapper");
     
-    if (div.style.display === "none") {
-        div.style.display = "block";
-        document.getElementById("schedule-header").innerHTML = "Lunch Schedule <i class=\"fas fa-angle-down\"></i>";
-    } else {
-        div.style.display = "none";
+    if (x.classList.contains("expand")) {
+        x.classList.remove("expand");
         document.getElementById("schedule-header").innerHTML = "Lunch Schedule <i class=\"fas fa-angle-up\"></i>";
+    } else {
+        x.classList.add("expand");
+        document.getElementById("schedule-header").innerHTML = "Lunch Schedule <i class=\"fas fa-angle-down\"></i>";
     }
 }
 

@@ -39,7 +39,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
  
     <!--css-->
-    <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="mystyle-search.css">
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -68,8 +68,7 @@
             <h1 id="find-header">Find Restaurants <i class="fas fa-angle-down"></i></h1>
         </header>
         
-        <div class="container">
-            <div id="search-container">
+            <div class="container expand" id="search-container">
 <!--            <form action="" autocomplete="off">-->
                 <div class="row">
                     <div class="col-100">
@@ -157,13 +156,13 @@
                 
 <!--            </form>-->
             </div>
-        </div>
+
         
         
         <header class="subhead" id="result-subhead" onclick="toggleResults()">
             <h1 id="results-header">Results <i class="fas fa-angle-up"></i></h1>
         </header>
-        <div class="container" id="results-wrapper" style="display: none;">
+        <div class="container" id="results-wrapper">
         <div class="row">
             <div id="instruction-container" class="col-100"></div>
             <div id="schedule-button-container" class="buttonwrapper"></div>
@@ -179,7 +178,7 @@
             <h1 id="schedule-header">Lunch Schedule <i class="fas fa-angle-up"></i></h1>
         </header>
         
-        <div class="container" id="schedule-wrapper" style="display: none;">
+        <div class="container" id="schedule-wrapper">
         <div class="row">
 <!--            <div id="save-instruction-container" class="col-100"></div>-->
             <div id="save-schedule-button-container" class="buttonwrapper"></div>
