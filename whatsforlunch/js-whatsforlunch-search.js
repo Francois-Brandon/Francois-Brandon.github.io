@@ -104,7 +104,7 @@ function addToRestaurantPool(ele) {
         restinfo.style.color = "#000000";
     } else {
         restPool.push(restinfo.innerHTML);
-        restinfo.style.backgroundColor = "#2851a4";
+        restinfo.style.backgroundColor = "#ff9900";
         restinfo.style.color = "#fff";
     }
     //console.log(restPool);
@@ -167,19 +167,19 @@ function createSchedule() {
     
     document.getElementById("create-error").innerHTML = '';
     
-    if (restPool.length < 5) {
-        var remain = 5 - restPool.length;
-        document.getElementById("create-error").innerHTML = "Select " + remain + " more restaurant(s)";
+    if (restPool.length < 1) {
+        //var remain = 5 - restPool.length;
+        document.getElementById("create-error").innerHTML = "Select at least 1 restaurant to continue.";
         return;
-    }
-    
-    for (var i = 0; i < 5; i++) {
+    } else if (restPool.length > 1) {
         var rnum = getRndInteger(0, restPool.length);
         schedule.push(restPool[rnum]);
         restPool.splice(rnum, 1);
+    } else if (restPool.length == 1) {
+        schedule.push(restPool[0]);
     }
           
-    var user = firebase.auth().currentUser;
+/*    var user = firebase.auth().currentUser;
 
     if (user) {
         // User is signed in.
@@ -191,35 +191,33 @@ function createSchedule() {
     } else {
         var instruct = document.createElement("P");
         instruct.setAttribute("id", "instructions");
-        instruct.innerHTML = ("Login to save your schedule");
+        instruct.innerHTML = ("Login to save your restaurant choice");
         //document.getElementById("save-instruction-container").appendChild(instruct);
         document.getElementById("save-schedule-button-container").appendChild(instruct);  
-    }
+    }*/
     
     var tb = document.createElement("TABLE");
     tb.setAttribute("id", "schedule");
     tb.setAttribute("class", "sched-table-style");
     document.getElementById("scheduletable").appendChild(tb);
     
-    for (var j = 0; j < 5; j++) {
-        var day = weekdays[j];
+
         
         var tr = document.createElement("TR");
-        tr.setAttribute("id", "srow" + j);
+        tr.setAttribute("id", "srow");
         document.getElementById("schedule").appendChild(tr);
         
         var a = document.createElement("TD");
-        a.setAttribute("id", day);
+        a.setAttribute("id", "meal");
         a.setAttribute("class", "td-day");
-        a.innerHTML = day;
-        document.getElementById("srow" + j).appendChild(a);
+        a.innerHTML = "Enjoy your" + "<br>" + "meal at...";
+        document.getElementById("srow").appendChild(a);
         
         var b = document.createElement("TD");
-        b.setAttribute("id", day + j);
         b.setAttribute("class", "td-rest");
-        b.innerHTML = schedule[j];
-        document.getElementById("srow" + j).appendChild(b);
-    }
+        b.innerHTML = schedule[0];
+        document.getElementById("srow").appendChild(b);
+    
 
     
     toggleResults();
@@ -278,7 +276,7 @@ function find() {
             parseResults(myObj);
         }
     };
-    xhttp.open("GET", "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyDxecYkMzbpjToNRR98fEpaJ4qY-lSKXns&type=restaurant" + query + coords + radius, true);
+    xhttp.open("GET", "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyBhO4oMw-a0l39Qcw3LvYKIdIOJ1nhmWys&type=restaurant" + query + coords + radius, true);
     xhttp.send();
 }
 
@@ -292,7 +290,7 @@ function parseResults(myObj) {
     
     var instruct = document.createElement("P");
     instruct.setAttribute("id", "instructions");
-    instruct.innerHTML = ("Select at least 5 restaurants to add to your restaurant pool.");
+    instruct.innerHTML = ("Select a restuarant or multiple if you want us to decide!");
     document.getElementById("instruction-container").appendChild(instruct);
     
     var schedButton = document.createElement("BUTTON");
@@ -306,7 +304,7 @@ function parseResults(myObj) {
     tb.setAttribute("id", "results");
     document.getElementById("resultstable").appendChild(tb);
     
-    for (var i = 0; i < myObj.results.length; i++) {
+    for (var i = 0; i < 5; i++) {
         var restaurant = myObj.results[i];
         
         var tr = document.createElement("TR");
@@ -391,3 +389,4 @@ function toggleDrop() {
         x.classList.add("droppeddown");
     }
 }
+
