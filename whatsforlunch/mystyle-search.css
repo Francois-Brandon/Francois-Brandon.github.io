@@ -96,7 +96,7 @@ h2 {
 /*header*/
  
 header {
-    background: #ff9900;
+    background: #f8893a;
     padding: 15px 18px;
 }
  
@@ -140,7 +140,7 @@ h1.logo a {
 a.to_nav {
     float: left;
     color: #fff;
-    background: #ff9900;
+    background: #f8893a;
     text-decoration: none;
     padding: 0 10px;
     font-size: 1.25em;
@@ -171,7 +171,7 @@ a.to_nav:focus {
  
 #primary_nav ul {
     list-style: none;
-    background: #ff9900;
+    background: #f8893a;
     padding: 5px 0;
     margin: 0;
 }
@@ -246,7 +246,7 @@ footer p {
 /* Style inputs, select elements and textareas*/ 
 input[type=text] {
     border: 1px solid transparent;
-    border-bottom: 1px solid #ff9900;
+    border-bottom: 1px solid #f8893a;
     background-color: #fff;
     padding: 10px;
     font-size: .8em;
@@ -262,7 +262,7 @@ label {
 
 /* Style the submit button */
 input[type=button] {
-  background-color: #ff9900;
+  background-color: #f8893a;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -279,7 +279,7 @@ input[type=button] {
 }
 
 #search, #create-schedule, #save-schedule, #getSchedule {
-    background-color: #ff9900;
+    background-color: #f8893a;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -300,7 +300,7 @@ input[type=button] {
 
 #results th {
     color: #fff;
-    background: #ff9900;
+    background: #f8893a;
     text-align: center;
 }
 
@@ -383,7 +383,7 @@ input[type=button] {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
     width: 70%; 
-    height: 20px; 
+    height: 17px; 
     background: #f2f2f2;
     outline: none;
     opacity: 0.7;
@@ -403,17 +403,17 @@ input[type=button] {
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #ff9900;
+    width: 35px; /* Set a specific slider handle width */
+    height: 35px; /* Slider handle height */
+    background: #f8893a;
     cursor: pointer; /* Cursor on hover */
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #ff9900;
+    width: 35px; /* Set a specific slider handle width */
+    height: 35px; /* Slider handle height */
+    background: #f8893a;
     cursor: pointer; /* Cursor on hover */
 }
 
@@ -425,7 +425,7 @@ input[type=button] {
 * { box-sizing: border-box; }
 
 .addcategory {
-    background-color: #ff9900;
+    background-color: #f8893a;
     color: white;
     padding: .4em .75em;
     border: none;
@@ -477,7 +477,7 @@ input[type=button] {
 }
 
 .segmented-control__input:checked + .segmented-control__label {
-    background: #ff9900;
+    background: #f8893a;
     color: #fff;
     -webkit-transition: background-color .75s ease-in, color .25s ease-in;
     -moz-transition: background-color 1s;
@@ -497,7 +497,7 @@ input[type=button] {
 
 .terms a {
     color: #fff;
-    background: #ff9900;
+    background: #f8893a;
     padding-right: 5px;
     padding-left: 5px;
     padding-top: 5px;
@@ -533,7 +533,7 @@ input[type=button] {
 }
 
 .plus {
-    color: #ff9900;
+    color: #f8893a;
 }
 
 .restData {

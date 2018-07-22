@@ -296,7 +296,7 @@ function parseResults(myObj) {
     var schedButton = document.createElement("BUTTON");
     schedButton.setAttribute("id", "create-schedule");
     schedButton.setAttribute("onclick", "createSchedule()");
-    schedButton.innerHTML = "Create Schedule";
+    schedButton.innerHTML = "Pick Restaurant";
     document.getElementById("schedule-button-container").appendChild(schedButton);
     
     
